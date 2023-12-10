@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-background: #f5f5f7;
+  --color-white: #ffffff;
+  --color-primary: #023047;
+  --color-secondary: #ffba08;
+  --border-primary: 1px solid #000;
+  --border-secondary: 2px solid #000;
+  --border-radius: 5px;
+  --transition-primary: all 0.3s ease;
+}
+
+body {
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  color: var(--color-primary);
+}

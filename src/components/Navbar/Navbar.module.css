@@ -1,0 +1,26 @@
+.navbar {
+  width: 100%;
+  user-select: none;
+  background-color: var(--color-white);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItem {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navItem:first-child {
+  justify-content: flex-start;
+}
+
+.navItem:last-child {
+  justify-content: flex-end;
+}

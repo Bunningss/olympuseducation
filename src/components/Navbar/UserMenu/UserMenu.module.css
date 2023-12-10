@@ -1,0 +1,51 @@
+.usermenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  padding: 0 10px;
+  border-radius: 21px;
+  cursor: pointer;
+  transition: var(--transition-primary);
+  position: relative;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.usermenu:hover,
+.menu:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  height: 30px;
+  width: 13px;
+}
+
+.line {
+  background-color: var(--color-primary);
+  height: 2px;
+  width: 100%;
+  border-radius: 21px;
+}
+
+.menu {
+  background-color: var(--color-white);
+  position: absolute;
+  top: 35px;
+  right: 0;
+  min-width: 100px;
+  padding: 10px 0;
+  border-radius: var(--border-radius);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}

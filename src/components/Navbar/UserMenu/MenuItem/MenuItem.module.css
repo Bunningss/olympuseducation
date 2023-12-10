@@ -1,0 +1,8 @@
+.menuItem {
+  padding: 5px;
+  transition: var(--transition-primary);
+}
+
+.menuItem:hover {
+  background-color: var(--color-secondary);
+}

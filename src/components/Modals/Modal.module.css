@@ -1,0 +1,44 @@
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-primary);
+  opacity: 0.6;
+  transition: all 300ms ease;
+}
+
+.modalContainer.closed {
+  opacity: 0;
+}
+
+.modalContent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: var(--border-radius);
+  /* max-height: 600px; */
+  height: fit-content;
+  max-width: 580px;
+  background-color: var(--color-secondary);
+  transition: all 300ms ease;
+}
+
+.modalContent.closed {
+  transform: translateY(300px);
+  opacity: 0;
+}
+
+.modalTitle {
+  border-bottom: var(--border-primary);
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

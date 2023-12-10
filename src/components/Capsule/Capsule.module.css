@@ -1,0 +1,18 @@
+.capsule {
+  border-radius: 21px;
+  border: var(--border-secondary);
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  cursor: pointer;
+
+  transition: var(--transition-primary);
+  overflow: hidden;
+}
+
+.capsule:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
