@@ -4,6 +4,8 @@ import styles from "./Modal.module.css";
 import Container from "../Container/Container";
 import Title from "../Title/Title";
 import Button from "../Button/Button";
+import Image from "next/image";
+import closeBtn from "../../../public/images/icons/closeBtn.png";
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,11 +13,11 @@ interface ModalProps {
   onSubmit: () => void;
   title: string;
   body: React.ReactElement;
-  footer?: React.ReactElement;
   actionLabel: string;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryLabel?: string;
+  large?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -24,11 +26,11 @@ const Modal: React.FC<ModalProps> = ({
   onSubmit,
   title,
   body,
-  footer,
   actionLabel,
   disabled,
   secondaryAction,
   secondaryLabel,
+  large,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -74,28 +76,44 @@ const Modal: React.FC<ModalProps> = ({
         className={`${!showModal && styles.closed} ${styles.modalContainer}`}
         onClick={handleClose}
       ></div>
-      <div className={`${styles.modalContent} ${!showModal && styles.closed}`}>
-        <div className={styles.modalTitle}>
-          <Title primaryTitle={title} />
-        </div>
-        <Container>
-          <div>{body}</div>
-          <div className={styles.buttonWrapper}>
-            {secondaryAction && secondaryLabel && (
-              <Button
-                outline
-                disabled={disabled}
-                label={secondaryLabel}
-                onClick={handleSecondaryAction}
-              />
-            )}
-            <Button
-              disabled={disabled}
-              label={actionLabel}
-              onClick={handleSubmit}
-            />
+      <div
+        className={`${styles.modalContent} ${!showModal && styles.closed} ${
+          large && styles.modalLarge
+        }`}
+      >
+        {/* Modal Content */}
+        <div className={styles.modalWrapper}>
+          <div className={styles.modalTitle}>
+            <Title primaryTitle={title} />
           </div>
-        </Container>
+          <Container>
+            <div>{body}</div>
+            <div className={styles.buttonWrapper}>
+              {secondaryAction && secondaryLabel && (
+                <Button
+                  outline
+                  disabled={disabled}
+                  label={secondaryLabel}
+                  onClick={handleSecondaryAction}
+                />
+              )}
+              <Button
+                disabled={disabled}
+                label={actionLabel}
+                onClick={handleSubmit}
+              />
+            </div>
+          </Container>
+
+          {/* Modal Close Button Start */}
+          <Image
+            onClick={handleClose}
+            src={closeBtn}
+            alt="Close button"
+            className={styles.modalCloseButton}
+          />
+          {/* Modal Close Button End */}
+        </div>
       </div>
     </>
   );

@@ -5,6 +5,8 @@ interface InputProps {
   errorMessage?: string;
   required: boolean;
   pattern?: string;
+  type: string;
+  minimumValue?: number;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -12,15 +14,18 @@ const Input: React.FC<InputProps> = ({
   errorMessage,
   required,
   pattern,
+  type,
+  minimumValue,
 }) => {
   return (
     <div className={styles.input}>
       <input
         required={required}
         pattern={pattern}
-        type="email"
+        type={type}
         className={styles.inputField}
         placeholder={placeholder}
+        min={minimumValue}
       />
       {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
     </div>

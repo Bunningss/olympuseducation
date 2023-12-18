@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 
 import "@/styles/globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
 
-const nunito = Nunito({ subsets: ["latin"] });
+const nunito = Ubuntu({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["cyrillic"],
+});
 
 export const metadata: Metadata = {
   title: "Academy App",

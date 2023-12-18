@@ -4,15 +4,15 @@
   width: 100%;
   padding: 10px 0;
   border-radius: var(--border-radius);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-regular);
   cursor: pointer;
   user-select: none;
 }
 
 .buttonPrimary {
   background-color: var(--color-primary);
-  color: var(--color-secondary);
+  color: var(--color-white);
 }
 
 .button.buttonOutline {

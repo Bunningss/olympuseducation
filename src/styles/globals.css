@@ -13,9 +13,14 @@
   --border-secondary: 2px solid #000;
   --border-radius: 5px;
   --transition-primary: all 0.3s ease;
+  --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --shadow-deep: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --font-regular: 14px;
+  --font-weight-regular: 600;
 }
 
 body {
+  font-weight: var(--font-weight-regular);
   background-color: var(--color-background);
   overflow-x: hidden;
   color: var(--color-primary);

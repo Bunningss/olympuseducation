@@ -9,7 +9,11 @@ import Input from "@/components/Input/Input";
 
 const bodyContent = (
   <form>
-    <Input placeholder="Email here" required />
+    <Input placeholder="First Name" required type="text" />
+    <Input placeholder="Last Name" required type="text" />
+    <Input placeholder="Email" required type="email" />
+    <Input placeholder="Phone" required type="number" minimumValue={0} />
+    <Input placeholder="Address" required type="text" />
   </form>
 );
 
@@ -20,7 +24,7 @@ const RegisterModal = () => {
   const handleSubmit = () => {};
   return (
     <Modal
-      title="Register"
+      title="Register OLYMPUS account"
       onClose={registerModal.onClose}
       disabled={isLoading}
       isOpen={registerModal.isOpen}
