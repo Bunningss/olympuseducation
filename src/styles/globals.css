@@ -5,12 +5,13 @@
 }
 
 :root {
-  --color-background: #f5f5f7;
+  --color-background: #f2f8f5;
   --color-white: #ffffff;
-  --color-primary: #023047;
-  --color-secondary: #ffba08;
-  --border-primary: 1px solid #000;
-  --border-secondary: 2px solid #000;
+  --color-primary: #26302b;
+  --color-secondary: #23bfb8;
+  --linear-gradient: -webkit-linear-gradient(#23bfb8, #85ea80);
+  --border-primary: 1px solid #26302b;
+  --border-secondary: 2px solid #26302b;
   --border-radius: 5px;
   --transition-primary: all 0.3s ease;
   --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -21,6 +22,7 @@
 
 body {
   font-weight: var(--font-weight-regular);
+  background-image: url(../../public/images/background/bg.png);
   background-color: var(--color-background);
   overflow-x: hidden;
   color: var(--color-primary);

@@ -6,4 +6,5 @@
 
 .menuItem:hover {
   background-color: var(--color-secondary);
+  color: var(--color-white);
 }

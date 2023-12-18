@@ -24,7 +24,7 @@ const RegisterModal = () => {
   const handleSubmit = () => {};
   return (
     <Modal
-      title="Register OLYMPUS account"
+      title="Register"
       onClose={registerModal.onClose}
       disabled={isLoading}
       isOpen={registerModal.isOpen}

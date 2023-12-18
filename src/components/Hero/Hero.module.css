@@ -1,0 +1,29 @@
+.hero {
+  height: calc(100vh - 70px);
+  background-image: url(../../../public/images/background/herobg.svg);
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  user-select: none;
+}
+
+.heroTitleContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroTitle {
+  font-size: 130px;
+  line-height: 130px;
+  text-transform: uppercase;
+}
+
+.heroTitleOutlined {
+  background: var(--linear-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 6px transparent;
+  color: var(--color-background);
+}

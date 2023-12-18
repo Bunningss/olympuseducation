@@ -21,7 +21,7 @@ const LoginModal = () => {
 
   return (
     <Modal
-      title="Login to OLYMPUS"
+      title="Login"
       onClose={loginModal.onClose}
       disabled={isLoading}
       isOpen={loginModal.isOpen}

@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
 
-const nunito = Ubuntu({
+const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
   subsets: ["cyrillic"],
 });
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={ubuntu.className}>
         <Navbar />
         <RegisterModal />
         <LoginModal />
