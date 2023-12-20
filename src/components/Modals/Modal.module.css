@@ -23,7 +23,7 @@
   border-radius: var(--border-radius);
   height: fit-content;
   max-width: 500px;
-  background-color: var(--color-white);
+  background-color: var(--color-background);
   transition: all 300ms ease;
 }
 
@@ -38,11 +38,15 @@
   width: 100%;
 }
 
+.bodyContainer {
+  margin: 15px 0;
+}
+
 .modalCloseButton {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 10px;
   cursor: pointer;
 }
@@ -53,6 +57,7 @@
 }
 
 .modalTitle {
+  padding: 10px 0;
   border-bottom: var(--border-primary);
 }
 

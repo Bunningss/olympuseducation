@@ -27,3 +27,14 @@
   -webkit-text-stroke: 6px transparent;
   color: var(--color-background);
 }
+
+@media screen and (max-width: 600px) {
+  .hero {
+    background-size: 120%;
+  }
+
+  .heroTitle {
+    font-size: 50px;
+    line-height: normal;
+  }
+}

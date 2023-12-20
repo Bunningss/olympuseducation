@@ -25,3 +25,9 @@
 .navItem:last-child {
   justify-content: flex-end;
 }
+
+@media screen and (max-width: 600px) {
+  .navItem:nth-child(n + 2) {
+    display: none;
+  }
+}
