@@ -6,7 +6,7 @@ const Capsule = () => {
     <div className={styles.capsule}>
       <CapsuleItem label="about us" />
       <CapsuleItem label="our courses" />
-      <CapsuleItem label="contact us" />
+      <CapsuleItem label="Content" />
     </div>
   );
 };

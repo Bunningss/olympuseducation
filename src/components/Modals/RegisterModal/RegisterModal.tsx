@@ -31,6 +31,8 @@ const RegisterModal = () => {
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}
+      headingMed="Welcome to OLYMPUS!"
+      headingSmall="Create an account."
     />
   );
 };

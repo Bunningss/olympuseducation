@@ -1,7 +1,17 @@
 .titleWrapper {
-  padding: 10px 0;
+  padding: 0 0;
+  margin: 0;
 }
 
 .titleLarge {
   text-align: center;
+  font-size: var(--heading-large);
+}
+
+.headingMed {
+  font-size: var(--heading-medium);
+}
+
+.headingSmall {
+  font-size: var(--heading-small);
 }

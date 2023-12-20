@@ -18,6 +18,12 @@
   --shadow-deep: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   --font-regular: 14px;
   --font-weight-regular: 600;
+
+  --heading-large: 28px;
+  --heading-medium: 22px;
+  --heading-small: 16px;
+
+  --mobile-screen: 600px;
 }
 
 body {

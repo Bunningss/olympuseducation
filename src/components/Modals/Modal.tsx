@@ -18,6 +18,9 @@ interface ModalProps {
   secondaryAction?: () => void;
   secondaryLabel?: string;
   large?: boolean;
+  headingSmall?: string;
+  headingMed?: string;
+  isHeadingCenter?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -31,6 +34,9 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryLabel,
   large,
+  headingMed,
+  headingSmall,
+  isHeadingCenter,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -87,7 +93,8 @@ const Modal: React.FC<ModalProps> = ({
             <Title primaryTitle={title} />
           </div>
           <Container>
-            <div>{body}</div>
+            <Title headingMed={headingMed} headingSmall={headingSmall} />
+            <div className={styles.bodyContainer}>{body}</div>
             <div className={styles.buttonWrapper}>
               {secondaryAction && secondaryLabel && (
                 <Button

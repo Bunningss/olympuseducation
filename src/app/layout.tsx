@@ -12,8 +12,8 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: "Academy App",
-  description: "Academy App",
+  title: "Olympus",
+  description: "Olympus Education",
 };
 
 export default function RootLayout({
