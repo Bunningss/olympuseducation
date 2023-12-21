@@ -15,10 +15,10 @@ const Vision = () => {
         <div className={styles.visionTextContainer}>
           <h4 className={styles.visionText}>
             We have a unique combination of talents motivated by ambitious goals
-            and a can-do attitude. Our drive to develop excellent products is
-            built on teamwork, passion, and giving team members full control
-            over their work to succeed on their own. We want to create an
-            environment where ideas can flourish.
+            and a can-do attitude. Our drive to develop excellence is built on
+            teamwork, passion, and giving students full control over their work
+            to succeed on their own. We want to create an environment where
+            ideas can flourish.
           </h4>
           <h4 className={styles.visionText}>
             We dream and dare to challenge the status quo and make a difference.
