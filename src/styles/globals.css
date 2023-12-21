@@ -33,3 +33,9 @@ body {
   overflow-x: hidden;
   color: var(--color-primary);
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    background-image: none;
+  }
+}

@@ -1,13 +1,12 @@
 import Container from "../Container/Container";
+import Social from "../Social/Social";
 import styles from "./Hero.module.css";
-import { Roboto_Slab } from "next/font/google";
-
-const roboto = Roboto_Slab({ subsets: ["cyrillic"], weight: ["900"] });
+import { roboto } from "@/app/layout";
 
 const Hero = () => {
   return (
-    <div className={`${styles.hero}`}>
-      <Container>
+    <Container>
+      <div className={`${styles.hero}`}>
         <div className={`${styles.heroTitleContainer} ${roboto.className}`}>
           <h1 className={styles.heroTitle}>
             creating <br /> the -
@@ -15,8 +14,11 @@ const Hero = () => {
             aspirants
           </h1>
         </div>
-      </Container>
-    </div>
+        <div className={styles.heroSocialContainer}>
+          <Social />
+        </div>
+      </div>
+    </Container>
   );
 };
 
