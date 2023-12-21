@@ -21,13 +21,14 @@ const LoginModal = () => {
 
   return (
     <Modal
-      title="Login"
+      modalTitle="Login"
       onClose={loginModal.onClose}
       disabled={isLoading}
       isOpen={loginModal.isOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}
+      tagline="Login to your account."
     />
   );
 };

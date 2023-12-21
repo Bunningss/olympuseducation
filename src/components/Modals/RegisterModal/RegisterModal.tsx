@@ -24,15 +24,15 @@ const RegisterModal = () => {
   const handleSubmit = () => {};
   return (
     <Modal
-      title="Register"
+      modalTitle="Register"
       onClose={registerModal.onClose}
       disabled={isLoading}
       isOpen={registerModal.isOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}
-      headingMed="Welcome to OLYMPUS!"
-      headingSmall="Create an account."
+      tagline="Create an account."
+      isSecondaryCenter
     />
   );
 };

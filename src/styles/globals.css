@@ -19,8 +19,8 @@
   --font-regular: 14px;
   --font-weight-regular: 600;
 
-  --heading-large: 28px;
-  --heading-medium: 22px;
+  --heading-large: 50px;
+  --heading-medium: 38px;
   --heading-small: 16px;
 
   --mobile-screen: 600px;
@@ -29,6 +29,7 @@
 body {
   font-weight: var(--font-weight-regular);
   background-image: url(../../public/images/background/bg.png);
+  background-size: 80%;
   background-color: var(--color-background);
   overflow-x: hidden;
   color: var(--color-primary);

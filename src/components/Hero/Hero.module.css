@@ -11,7 +11,7 @@
 .heroTitleContainer {
   height: 100%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
@@ -33,9 +33,7 @@
   height: fit-content;
   position: absolute;
   right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+  bottom: 70px;
 }
 
 @media screen and (max-width: 600px) {
