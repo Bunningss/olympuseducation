@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { Roboto_Slab } from "next/font/google";
 
 import "@/styles/globals.css";
@@ -8,12 +8,12 @@ import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
 
 const roboto = Roboto_Slab({ subsets: ["cyrillic"], weight: ["900"] });
-const ubuntu = Ubuntu({
+const nunito = Nunito_Sans({
   weight: ["300", "400", "500", "700"],
   subsets: ["cyrillic"],
 });
 
-export { ubuntu, roboto };
+export { nunito, roboto };
 
 export const metadata: Metadata = {
   title: "Olympus",
@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ubuntu.className}>
+      <body className={nunito.className}>
         <Navbar />
         <RegisterModal />
         <LoginModal />

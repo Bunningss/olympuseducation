@@ -11,32 +11,36 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: () => void;
-  title: string;
+  modalTitle: string;
   body: React.ReactElement;
   actionLabel: string;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryLabel?: string;
   large?: boolean;
-  headingSmall?: string;
-  headingMed?: string;
-  isHeadingCenter?: boolean;
+  tagline?: string;
+  secondaryTitle?: string;
+  isPrimaryCenter?: boolean;
+  isSecondaryCenter?: boolean;
+  isTaglineCenter?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   onSubmit,
-  title,
+  modalTitle,
   body,
   actionLabel,
   disabled,
   secondaryAction,
   secondaryLabel,
   large,
-  headingMed,
-  headingSmall,
-  isHeadingCenter,
+  secondaryTitle,
+  tagline,
+  isPrimaryCenter,
+  isSecondaryCenter,
+  isTaglineCenter,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -90,10 +94,10 @@ const Modal: React.FC<ModalProps> = ({
         {/* Modal Content */}
         <div className={styles.modalWrapper}>
           <div className={styles.modalTitle}>
-            <Title primaryTitle={title} />
+            <Title secondaryTitle={modalTitle} isSecondaryCentre />
           </div>
           <Container>
-            <Title headingMed={headingMed} headingSmall={headingSmall} />
+            <Title secondaryTitle={secondaryTitle} tagline={tagline} />
             <div className={styles.bodyContainer}>{body}</div>
             <div className={styles.buttonWrapper}>
               {secondaryAction && secondaryLabel && (

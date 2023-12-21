@@ -33,9 +33,7 @@
   height: fit-content;
   position: absolute;
   right: 0;
-  top: 0;
   bottom: 0;
-  margin: auto;
 }
 
 @media screen and (max-width: 600px) {

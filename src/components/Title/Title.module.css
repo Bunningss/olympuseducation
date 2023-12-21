@@ -4,14 +4,29 @@
 }
 
 .titleLarge {
-  text-align: center;
   font-size: var(--heading-large);
 }
 
 .headingMed {
   font-size: var(--heading-medium);
+  letter-spacing: 3px;
 }
 
 .headingSmall {
   font-size: var(--heading-small);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding-bottom: 5px;
+}
+
+.headingMed.center {
+  text-align: center;
+}
+
+.headingSmall.center {
+  text-align: center;
+}
+
+.titleLarge.center {
+  text-align: center;
 }
