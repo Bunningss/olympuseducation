@@ -33,3 +33,9 @@
   margin: 15px 0;
   font-size: var(--heading-small);
 }
+
+@media screen and (max-width: 600px) {
+  .social {
+    display: none;
+  }
+}
