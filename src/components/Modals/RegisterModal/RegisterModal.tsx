@@ -31,7 +31,6 @@ const RegisterModal = () => {
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}
-      secondaryTitle="Welcome to OLYMPUS!"
       tagline="Create an account."
       isSecondaryCenter
     />

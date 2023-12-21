@@ -2,7 +2,9 @@
   text-transform: capitalize;
   text-align: center;
   width: 100%;
-  padding: 10px 0;
+  padding: 15px 0;
+  border: var(--border-primary);
+  outline: none;
   border-radius: var(--border-radius);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-regular);

@@ -1,0 +1,14 @@
+.vision {
+  position: relative;
+}
+
+.visionTextContainer {
+  display: flex;
+  gap: 150px;
+  margin: 60px 0;
+}
+
+.visionText {
+  flex: 1;
+  font-size: 22px;
+}

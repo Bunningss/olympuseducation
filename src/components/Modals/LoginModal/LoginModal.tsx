@@ -28,7 +28,6 @@ const LoginModal = () => {
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}
-      secondaryTitle="Welcome to OLYMPUS"
       tagline="Login to your account."
     />
   );

@@ -97,22 +97,24 @@ const Modal: React.FC<ModalProps> = ({
             <Title secondaryTitle={modalTitle} isSecondaryCentre />
           </div>
           <Container>
-            <Title secondaryTitle={secondaryTitle} tagline={tagline} />
-            <div className={styles.bodyContainer}>{body}</div>
-            <div className={styles.buttonWrapper}>
-              {secondaryAction && secondaryLabel && (
+            <div className={styles.modalBody}>
+              <Title secondaryTitle={secondaryTitle} tagline={tagline} />
+              <div className={styles.bodyContainer}>{body}</div>
+              <div className={styles.buttonWrapper}>
+                {secondaryAction && secondaryLabel && (
+                  <Button
+                    outline
+                    disabled={disabled}
+                    label={secondaryLabel}
+                    onClick={handleSecondaryAction}
+                  />
+                )}
                 <Button
-                  outline
                   disabled={disabled}
-                  label={secondaryLabel}
-                  onClick={handleSecondaryAction}
+                  label={actionLabel}
+                  onClick={handleSubmit}
                 />
-              )}
-              <Button
-                disabled={disabled}
-                label={actionLabel}
-                onClick={handleSubmit}
-              />
+              </div>
             </div>
           </Container>
 
