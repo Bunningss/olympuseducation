@@ -1,5 +1,5 @@
 import styles from "./BackgroundText.module.css";
-import { roboto } from "@/app/layout";
+import { roboto } from "@/fonts/fonts";
 
 const BackgroundText = () => {
   return (

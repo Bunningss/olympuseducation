@@ -1,7 +1,7 @@
 import Container from "../Container/Container";
 import Social from "../Social/Social";
 import styles from "./Hero.module.css";
-import { roboto } from "@/app/layout";
+import { roboto } from "@/fonts/fonts";
 
 const Hero = () => {
   return (
