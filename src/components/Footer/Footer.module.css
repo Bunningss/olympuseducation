@@ -1,3 +1,60 @@
 .footer {
   height: 100vh;
 }
+
+.content {
+  padding: 20px 0 0 0;
+}
+
+.footerTitle {
+  font-size: 40px;
+  padding: 0 0 30px 0;
+  font-weight: 400;
+}
+
+.footerLink {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.footerLink a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  gap: 150px;
+  margin-top: 150px;
+}
+
+.footerBottomContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footerBottomHeader {
+  font-size: 30px;
+  text-transform: capitalize;
+  padding-bottom: 15px;
+}
+
+.footerBottomText {
+  font-size: var(--heading-small);
+  font-weight: 300;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.socialIcon {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  cursor: pointer;
+}
