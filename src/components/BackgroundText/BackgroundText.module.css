@@ -11,3 +11,17 @@
   margin: 0 -1000px 0 0;
   z-index: -10;
 }
+
+.backgroundTextSecondary {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 300px;
+  line-height: 290px;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.201);
+  color: #26302b;
+  opacity: 0.2;
+  position: absolute;
+  top: 65px;
+}
