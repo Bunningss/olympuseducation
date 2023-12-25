@@ -8,14 +8,14 @@
 }
 
 .footerTitle {
-  font-size: 40px;
+  font-size: var(--heading-M);
   padding: 0 0 30px 0;
-  font-weight: 400;
+  font-weight: var(--font-light);
 }
 
 .footerLink {
-  font-size: 70px;
-  font-weight: 700;
+  font-size: var(--heading-XL);
+  font-weight: var(--font-bolder);
 }
 
 .footerLink a {
@@ -37,14 +37,14 @@
 }
 
 .footerBottomHeader {
-  font-size: 30px;
+  font-size: var(--heading-M);
   text-transform: capitalize;
   padding-bottom: 15px;
 }
 
 .footerBottomText {
-  font-size: var(--heading-small);
-  font-weight: 300;
+  font-size: var(--font-XS);
+  font-weight: var(--font-light);
 }
 
 .socialLinks {

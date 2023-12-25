@@ -1,5 +1,5 @@
 .backgroundText {
-  font-weight: 700;
+  font-weight: var(--font-bolder);
   font-size: 200px;
   line-height: 60px;
   letter-spacing: -2px;
@@ -14,7 +14,7 @@
 
 .backgroundTextSecondary {
   font-style: normal;
-  font-weight: 900;
+  font-weight: var(--font-bolder);
   font-size: 300px;
   line-height: 290px;
   text-transform: uppercase;

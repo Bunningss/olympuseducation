@@ -16,12 +16,17 @@
   --transition-primary: all 0.3s ease;
   --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   --shadow-deep: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  --font-regular: 14px;
-  --font-weight-regular: 600;
+  --font-XS: 14px;
   --font-M: 22px;
-  --heading-large: 50px;
-  --heading-medium: 38px;
-  --heading-small: 16px;
+  --heading-XXL: 130px;
+  --heading-XL: 70px;
+  --heading-L: 50px;
+  --heading-M: 38px;
+  --heading-S: 16px;
+
+  --font-light: 400;
+  --font-bold: 600;
+  --font-bolder: 800;
 
   --mobile-screen: 600px;
 }

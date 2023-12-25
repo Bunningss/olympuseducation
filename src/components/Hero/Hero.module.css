@@ -11,12 +11,11 @@
 .heroTitleContainer {
   height: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
 .heroTitle {
-  font-size: 130px;
+  font-size: var(--heading-XXL);
   line-height: 130px;
   text-transform: uppercase;
 }

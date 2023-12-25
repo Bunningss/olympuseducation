@@ -6,8 +6,8 @@
   border: var(--border-primary);
   outline: none;
   border-radius: var(--border-radius);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-regular);
+  font-weight: var(--font-bold);
+  font-size: var(--font-XS);
   cursor: pointer;
   user-select: none;
 }

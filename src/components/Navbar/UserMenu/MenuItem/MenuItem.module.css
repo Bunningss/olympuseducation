@@ -1,7 +1,7 @@
 .menuItem {
   padding: 5px;
   transition: var(--transition-primary);
-  font-size: var(--font-regular);
+  font-size: var(--font-XS);
 }
 
 .menuItem:hover {
