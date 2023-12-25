@@ -18,8 +18,8 @@ const About = () => {
           </div>
           <div className={styles.aboutSection}>
             <p className={styles.aboutText}>
-              We are a team of designers, developers, musicians, and real life
-              magicians hailing from different parts of the world.
+              We are a team of maestros hailing from different parts of the
+              world.
             </p>
             <Link href="" className={styles.aboutLink}>
               See our courses
