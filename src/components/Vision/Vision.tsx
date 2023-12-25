@@ -7,7 +7,7 @@ const Vision = () => {
   return (
     <Container>
       <div className={styles.vision}>
-        <BackgroundText />
+        <BackgroundText primaryText="our vision" />
         <Title
           secondaryTitle="Here, we embrace the challenge to drive each other to excellence by enriching our own capabilities."
           tagline="We envision with a mission."

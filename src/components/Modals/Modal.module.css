@@ -29,10 +29,6 @@
   z-index: 6;
 }
 
-.modalBody {
-  padding: 15px 0;
-}
-
 .modalContent.modalLarge {
   max-width: none;
   width: 80%;

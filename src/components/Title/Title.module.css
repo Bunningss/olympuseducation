@@ -4,16 +4,16 @@
 }
 
 .titleLarge {
-  font-size: var(--heading-large);
+  font-size: var(--heading-L);
 }
 
 .headingMed {
-  font-size: var(--heading-medium);
+  font-size: var(--heading-M);
   letter-spacing: 3px;
 }
 
 .headingSmall {
-  font-size: var(--heading-small);
+  font-size: var(--heading-S);
   text-transform: uppercase;
   letter-spacing: 5px;
   padding-bottom: 5px;

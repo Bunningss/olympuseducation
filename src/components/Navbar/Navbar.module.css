@@ -1,7 +1,8 @@
 .navbar {
+  margin-top: 50px;
   width: 100%;
   user-select: none;
-  background-color: var(--color-background);
+  /* background-color: var(--color-background); */
   height: 70px;
 }
 

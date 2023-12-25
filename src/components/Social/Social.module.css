@@ -31,7 +31,7 @@
   writing-mode: vertical-lr;
   transform: scale(-1, -1);
   margin: 15px 0;
-  font-size: var(--heading-small);
+  font-size: var(--heading-S);
 }
 
 @media screen and (max-width: 600px) {

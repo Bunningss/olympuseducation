@@ -1,6 +1,5 @@
 import styles from "@/components/Navbar/Logo/Logo.module.css";
-import { Roboto_Slab } from "next/font/google";
-const roboto = Roboto_Slab({ subsets: ["cyrillic"], weight: ["900"] });
+import { roboto } from "@/fonts/fonts";
 
 const Logo = () => {
   return (
