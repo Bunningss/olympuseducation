@@ -1,7 +1,12 @@
 import mongoose from 'mongoose'
 
-interface userProps {
-
+interface UserProps {
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String,
+    picture: String
+    role: String,
 }
 
 const userSchema = new mongoose.Schema({
@@ -15,12 +20,23 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     password: {
         type: String,
         required: true
+    },
+    picture: {
+        type: String,
+        required: false
+    },
+    role: {
+        type: String,
+        enum: ['ADMIN', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER' ],
+        required: false,
+        default: 'USER'
     }
-})
+}, { timestamps: true })
 
 export const User = mongoose.models?.Users || mongoose.model("Users", userSchema)

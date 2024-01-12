@@ -1,26 +1,27 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import cryptoJs from 'crypto-js';
 import { User } from "@/models/User";
+import { NextRequest, NextResponse } from "next/server";
+import connectDb from "@/utils/db/connect";
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-    let {firstName, lastName, email, password} = req.body
+
+export async function POST(request: NextRequest, response: NextResponse) {
+    let {firstName, lastName, email, password} = await request.json()
     try {
+        connectDb()
 
-        console.log(req)
+        const existingUser = await User.findOne({ email: email })
+
+        if (existingUser) return new Response("User already exist")
+
+        const hashedPass = cryptoJs.AES.encrypt(password, process.env.CRYPTO_SEC).toString()
+        
         let user = new User({
-            firstName, lastName, email, password
+            firstName, lastName, email, password: hashedPass
         })
 
         await user.save()
         return new Response("User Saved", { status: 200})
     } catch (err) {
-        console.log(err)
-    }
-}
-
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    try {
-        return new Response("Hi")
-    } catch (err) {
-        console.log(err)
+        return new Response("An error occured!", { status: 400 })
     }
 }
