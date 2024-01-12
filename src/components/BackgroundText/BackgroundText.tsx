@@ -14,11 +14,11 @@ const BackgroundText: React.FC<BackgroundTextProps> = ({
     <>
       {primaryText && (
         <h2 className={`${styles.backgroundText} ${roboto.className}`}>
-          our vision
+          {primaryText}
         </h2>
       )}
       {outlineText && (
-        <h2 className={styles.backgroundTextSecondary}>we are superstars</h2>
+        <h2 className={styles.backgroundTextSecondary}>{outlineText}</h2>
       )}
     </>
   );
