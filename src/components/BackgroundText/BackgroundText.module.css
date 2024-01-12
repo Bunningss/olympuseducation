@@ -4,7 +4,7 @@
   line-height: 60px;
   letter-spacing: -2px;
   text-transform: uppercase;
-  color: #e7f2ef;
+  color: var(--color-secondary-light);
   position: relative;
   left: -150px;
   bottom: -150px;
@@ -15,11 +15,11 @@
 .backgroundTextSecondary {
   font-style: normal;
   font-weight: var(--font-bolder);
-  font-size: 300px;
-  line-height: 290px;
+  font-size: 250px;
+  line-height: 250px;
   text-transform: uppercase;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.201);
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.308);
   color: #26302b;
   opacity: 0.2;
   position: absolute;
