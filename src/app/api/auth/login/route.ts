@@ -12,7 +12,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     if (!user) return new Response("Incorrect email or password!")
 
-    const decryptedPass = cryptoJs.AES.decrypt(user.password, process.env.CRYPTO_SEC).toString(cryptoJs.enc.Utf8);
+    const decryptedPass = cryptoJs.AES.decrypt(user.password, process.env.CRYPTO_SEC || '').toString(cryptoJs.enc.Utf8);
     
     
     if(decryptedPass === password) {

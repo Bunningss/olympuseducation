@@ -13,7 +13,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
         if (existingUser) return new Response("User already exist")
 
-        const hashedPass = cryptoJs.AES.encrypt(password, process.env.CRYPTO_SEC).toString()
+        const hashedPass = cryptoJs.AES.encrypt(password, process.env.CRYPTO_SEC || '').toString()
         
         let user = new User({
             firstName, lastName, email, password: hashedPass
