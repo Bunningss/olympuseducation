@@ -27,13 +27,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    address: {
+        type: String,
+        required: false
+    },
     picture: {
         type: String,
         required: false
     },
     role: {
         type: String,
-        enum: ['ADMIN', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER' ],
+        enum: [ 'SUPERADMIN', 'ADMIN', 'IT', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER' ],
         required: false,
         default: 'USER'
     }

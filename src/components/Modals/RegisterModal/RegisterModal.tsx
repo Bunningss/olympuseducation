@@ -1,6 +1,4 @@
 "use client";
-import styles from "./RegisterModal.module.css";
-import axios from "axios";
 import { useState } from "react";
 
 import useRegisterModal from "@/hooks/useRegisterModal";
