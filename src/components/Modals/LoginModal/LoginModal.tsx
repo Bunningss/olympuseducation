@@ -11,7 +11,10 @@ import Input from "@/components/Input/Input";
 const LoginModal = () => {
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
-  const [ data, setData ] = useState({})
+  const [ data, setData ] = useState({
+    email: '',
+    password: ''
+  })
 
   const handleData = (e: any) => {
     setData({...data, [e.target.name]: e.target.value })

@@ -5,19 +5,70 @@ import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "../Modal";
 import Input from "@/components/Input/Input";
 
-const bodyContent = (
-  <form>
-    <Input placeholder="First Name" required type="text" />
-    <Input placeholder="Last Name" required type="text" />
-    <Input placeholder="Email" required type="email" />
-    <Input placeholder="Phone" required type="number" minimumValue={0} />
-    <Input placeholder="Address" required type="text" />
-  </form>
-);
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
+  const [ data, setData ] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phone: '',
+    address: ''
+  });
+
+  const handleChange = (e: any) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
+
+  const registerInputs = [
+    {
+      placeholder: 'First Name',
+      type: 'text',
+      required: true,
+      onchange: handleChange,
+      name: 'firstName',
+    },
+    {
+      placeholder: 'Last Name',
+      type: 'text',
+      required: true,
+      onchange: handleChange,
+      name: 'lastName',
+    },
+    {
+      placeholder: 'Email Address',
+      type: 'email',
+      required: true,
+      onchange: handleChange,
+      name: 'email',
+    },
+    {
+      placeholder: 'Phone Number',
+      type: 'number',
+      required: false,
+      onchange: handleChange,
+      name: 'phone',
+    },
+    {
+      placeholder: 'Address',
+      type: 'text',
+      required: true,
+      onchange: handleChange,
+      name: 'address',
+    },
+  ];
+
+  const bodyContent: JSX.Element = (
+    <form>
+      {
+        registerInputs.map((input, indx) => (
+          <Input key={indx} handleChange={input.onchange} name={input.name} placeholder={input.placeholder} required type={input.type} />
+        ))
+      }
+    </form>
+  );
 
   const handleSubmit = () => {};
   return (
