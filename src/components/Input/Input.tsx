@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import styles from "./Input.module.css";
 
 interface InputProps {
@@ -6,7 +7,9 @@ interface InputProps {
   required: boolean;
   pattern?: string;
   type: string;
+  name: string;
   minimumValue?: number;
+  handleChange: ChangeEventHandler;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -16,6 +19,8 @@ const Input: React.FC<InputProps> = ({
   pattern,
   type,
   minimumValue,
+  name,
+  handleChange
 }) => {
   return (
     <div className={styles.input}>
@@ -23,9 +28,11 @@ const Input: React.FC<InputProps> = ({
         required={required}
         pattern={pattern}
         type={type}
+        name={name}
         className={styles.inputField}
         placeholder={placeholder}
         min={minimumValue}
+        onChange={handleChange}
       />
       {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
     </div>

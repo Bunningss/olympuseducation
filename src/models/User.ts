@@ -23,9 +23,20 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    phone: {},
+    emergencyContact: {},
+    startDate: {},
+    expectedBandScore: {},
+    bandScoreAchieved: {},
+    nidNumber: {},
+    passportNumber: {},
     password: {
         type: String,
         required: true
+    },
+    address: {
+        type: String,
+        required: false
     },
     picture: {
         type: String,
@@ -33,7 +44,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['ADMIN', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER' ],
+        enum: [ 'SUPERADMIN', 'ADMIN', 'IT', 'ACCOUNTS', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER', ],
         required: false,
         default: 'USER'
     }
