@@ -15,13 +15,25 @@
 .backgroundTextSecondary {
   font-style: normal;
   font-weight: var(--font-bolder);
-  font-size: 250px;
-  line-height: 250px;
+  font-size: var(--font-stroked);
   text-transform: uppercase;
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: rgba(255, 255, 255, 0.308);
   color: #26302b;
   opacity: 0.2;
   position: absolute;
-  top: 65px;
+  top: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .backgroundText {
+    /* top: 0.4em;
+    left: 0; */
+    font-size: 70px;
+  }
+
+  .backgroundTextSecondary {
+    line-height: 180px;
+    font-size: calc(var(--font-stroked) / 1.2);
+  }
 }

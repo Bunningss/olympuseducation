@@ -1,7 +1,6 @@
 .vision {
-  height: 100vh;
+  height: 100%;
   position: relative;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,11 +8,22 @@
 
 .visionTextContainer {
   display: flex;
-  gap: 150px;
+  gap: var(--item-gap);
   margin: 60px 0;
 }
 
 .visionText {
   flex: 1;
-  font-size: var(--font-M);
+  font-size: var(--font-title);
+}
+
+@media screen and (max-width: 600px) {
+  .visionTextContainer {
+    flex-direction: column;
+    gap: calc(var(--item-gap) / 3);
+  }
+
+  .visionText {
+    font-size: calc(var(--font-title) / 1.2);
+  }
 }

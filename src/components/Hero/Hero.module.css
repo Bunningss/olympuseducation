@@ -1,5 +1,5 @@
 .hero {
-  height: calc(100vh - 150px);
+  height: 100%;
   background-image: url(../../../public/images/background/herobg.svg);
   background-position: center;
   background-size: 70%;
@@ -15,7 +15,7 @@
 }
 
 .heroTitle {
-  font-size: var(--heading-XXL);
+  font-size: var(--heading-primary);
   line-height: 130px;
   text-transform: uppercase;
 }
@@ -38,12 +38,11 @@
 @media screen and (max-width: 600px) {
   .hero {
     background-size: 120%;
-    height: calc(70vh - 70px);
-    background-color: #fff;
+    height: calc(50vh - 70px);
   }
 
   .heroTitle {
-    font-size: 50px;
+    font-size: calc(var(--heading-primary) / 2.5);
     line-height: normal;
   }
 }

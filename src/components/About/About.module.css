@@ -1,14 +1,15 @@
 .about {
+  height: 100%;
   background-color: var(--color-primary);
-  height: 80vh;
   position: relative;
   color: var(--color-white);
+  overflow: hidden;
 }
 
 .aboutContent {
   display: flex;
   height: 100%;
-  gap: 100px;
+  gap: var(--item-gap);
 }
 
 .aboutSection {
@@ -21,7 +22,7 @@
 }
 
 .aboutTitle {
-  font-size: var(--heading-XL);
+  font-size: var(--heading-secondary);
   background: linear-gradient(102.6deg, #23bfb8 -0.49%, #85ea80 104.37%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -31,13 +32,33 @@
 }
 
 .aboutText {
-  font-size: var(--font-M);
+  font-size: var(--font-title);
   margin-bottom: 70px;
   font-weight: var(--font-light);
 }
 
 .aboutLink {
-  font-size: var(--font-M);
+  font-size: var(--font-title);
   font-weight: var(--font-bolder);
   color: var(--color-white);
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    height: 60vh;
+  }
+
+  .aboutTitle {
+    font-size: calc(var(--heading-secondary) / 1.4);
+  }
+
+  .aboutText,
+  .aboutLink {
+    font-size: calc(var(--font-title) / 1.2);
+  }
+
+  .aboutContent {
+    flex-direction: column;
+    gap: calc(var(--item-gap) / 3);
+  }
 }

@@ -6,12 +6,13 @@ import { roboto } from "@/fonts/fonts";
 import facebook from "../../../public/images/icons/facebook.png";
 import instagram from "../../../public/images/icons/instagram.png";
 import youtube from "../../../public/images/icons/youtube.png";
+import Section from "../Section/Section";
 
 const Footer = () => {
   return (
-    <div className={`${roboto.className} ${styles.footer}`}>
+    <Section>
       <Container>
-        <div className={styles.footerWrapper}>
+        <div className={`${roboto.className} ${styles.footer}`}>
           <div className={styles.content}>
             <h4 className={styles.footerTitle}>Want to talk to us?</h4>
             <h2 className={styles.footerLink}>
@@ -42,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </Section>
   );
 };
 

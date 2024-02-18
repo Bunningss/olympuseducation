@@ -18,21 +18,19 @@
   --transition-primary: all 0.3s ease;
   --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   --shadow-deep: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  --font-XS: 14px;
-  --font-M: 22px;
-  --heading-XXL: 130px;
-  --heading-XL: 70px;
-  --heading-L: 50px;
-  --heading-M: 38px;
-  --heading-S: 16px;
-
+  --font-regular: 1em;
+  --font-title: 1.5em;
+  --heading-primary: 8em;
+  --heading-secondary: 4.3em;
+  --heading-medium: 2.38em;
+  --font-stroked: 15.5em;
   --font-light: 400;
   --font-bold: 600;
   --font-bolder: 800;
-
-  --mobile-screen: 600px;
+  --item-gap: 9rem;
 }
 
+html,
 body {
   font-weight: var(--font-weight-regular);
   background-image: url(../../public/images/background/bg.png);
@@ -40,10 +38,5 @@ body {
   background-color: var(--color-background);
   overflow-x: hidden;
   color: var(--color-primary);
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    background-image: none;
-  }
+  font-size: var(--font-regular);
 }

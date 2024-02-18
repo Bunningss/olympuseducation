@@ -3,7 +3,7 @@
   border-left: var(--border-secondary);
 
   text-transform: capitalize;
-  font-size: var(--font-XS);
+  font-size: var(--font-regular);
   transition: var(--transition-primary);
 }
 

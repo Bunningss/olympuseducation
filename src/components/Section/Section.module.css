@@ -1,0 +1,10 @@
+.section {
+  height: 80vh;
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    min-height: 50vh;
+    height: fit-content;
+  }
+}
