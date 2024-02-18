@@ -35,14 +35,71 @@
   bottom: 70px;
 }
 
+.scrollDown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 34px;
+  height: 55px;
+}
+
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 35px;
+  border: 2px solid var(--color-primary);
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+
+.scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: var(--color-primary);
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .hero {
+    min-height: inherit;
     background-size: 120%;
-    height: calc(50vh - 70px);
+    display: flex;
+    align-items: center;
   }
 
   .heroTitle {
     font-size: calc(var(--heading-primary) / 2.5);
     line-height: normal;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero {
+    background-size: 120%;
+  }
+
+  .heroTitle {
+    font-size: calc(var(--heading-primary) / 3);
   }
 }

@@ -9,12 +9,14 @@
 .visionTextContainer {
   display: flex;
   gap: var(--item-gap);
-  margin: 60px 0;
+  margin-top: calc(var(--item-gap) / 3);
+  margin-bottom: calc(var(--item-gap) / 3);
 }
 
 .visionText {
   flex: 1;
   font-size: var(--font-title);
+  font-weight: var(--font-light);
 }
 
 @media screen and (max-width: 600px) {

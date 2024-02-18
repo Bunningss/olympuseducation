@@ -19,6 +19,12 @@ const Hero = () => {
           <div className={styles.heroSocialContainer}>
             <Social />
           </div>
+          {/* Mouse Scroll */}
+          <div className={styles.scrollDown}>
+            <div className={styles.mousey}>
+              <div className={styles.scroller}></div>
+            </div>
+          </div>
         </div>
       </Container>
     </Section>
