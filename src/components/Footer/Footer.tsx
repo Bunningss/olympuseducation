@@ -6,7 +6,12 @@ import { roboto } from "@/fonts/fonts";
 import facebook from "../../../public/images/icons/facebook.png";
 import instagram from "../../../public/images/icons/instagram.png";
 import youtube from "../../../public/images/icons/youtube.png";
+import linkedin from "../../../public/images/icons/linkedin.png";
+import whatsapp from "../../../public/images/icons/whatsapp.png";
 import Section from "../Section/Section";
+import Link from "next/link";
+import SocialItem from "../SocialItem/SocialItem";
+import { socialItems } from "@/utils/static";
 
 const Footer = () => {
   return (
@@ -34,9 +39,9 @@ const Footer = () => {
               <div className={styles.footerBottomContentWrapper}>
                 <h4 className={styles.footerBottomHeader}>follow us</h4>
                 <div className={styles.socialLinks}>
-                  <Image className={styles.socialIcon} src={facebook} alt="" />
-                  <Image className={styles.socialIcon} src={instagram} alt="" />
-                  <Image className={styles.socialIcon} src={youtube} alt="" />
+                  {socialItems.map((item, indx) => (
+                    <SocialItem key={indx} item={item} />
+                  ))}
                 </div>
               </div>
             </div>

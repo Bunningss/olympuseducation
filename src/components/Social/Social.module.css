@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 1em;
 }
 
 .socialIcons::after {
@@ -18,13 +18,6 @@
   height: 80px;
   width: 0;
   border: var(--border-primary);
-}
-
-.socialIcon {
-  width: 25px;
-  height: 25px;
-  object-fit: contain;
-  cursor: pointer;
 }
 
 .socialText {

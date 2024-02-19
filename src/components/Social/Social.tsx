@@ -1,18 +1,16 @@
-import Image from "next/image";
 import styles from "./Social.module.css";
-import facebook from "../../../public/images/icons/facebook.png";
-import instagram from "../../../public/images/icons/instagram.png";
-import youtube from "../../../public/images/icons/youtube.png";
 
 import { roboto } from "@/fonts/fonts";
+import { socialItems } from "@/utils/static";
+import SocialItem from "../SocialItem/SocialItem";
 
-const Social = () => {
+const Social: React.FC = () => {
   return (
     <div className={styles.social}>
       <div className={styles.socialIcons}>
-        <Image className={styles.socialIcon} src={facebook} alt="Facebook" />
-        <Image className={styles.socialIcon} src={instagram} alt="Instagram" />
-        <Image className={styles.socialIcon} src={youtube} alt="Twitter" />
+        {socialItems.map((item, indx) => (
+          <SocialItem key={indx} item={item} />
+        ))}
       </div>
       <h2 className={`${styles.socialText} ${roboto.className}`}>Follow us</h2>
     </div>
