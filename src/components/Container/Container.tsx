@@ -1,4 +1,3 @@
-// "use client";
 import styles from "@/components/Container/Container.module.css";
 
 interface ContainerProps {

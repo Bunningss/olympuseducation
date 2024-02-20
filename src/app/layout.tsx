@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
+import ContextProvider from "@/Context/ContextProvider";
 
 export const metadata: Metadata = {
   title: "Olympus",
@@ -17,12 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
-        <Navbar />
-        <RegisterModal />
-        <LoginModal />
-        {children}
-      </body>
+      <ContextProvider>
+        <body className={nunito.className}>
+          <Navbar />
+          <RegisterModal />
+          <LoginModal />
+          {children}
+        </body>
+      </ContextProvider>
     </html>
   );
 }

@@ -1,0 +1,6 @@
+.dropdownSeparator {
+  display: block;
+  width: 100%;
+  height: 0.01em;
+  background-color: var(--color-primary);
+}

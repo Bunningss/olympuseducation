@@ -33,7 +33,7 @@
 
 .aboutText {
   font-size: var(--font-title);
-  margin-bottom: 70px;
+  margin-bottom: calc(var(--item-gap) / 2);
   font-weight: var(--font-light);
 }
 
@@ -44,10 +44,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .about {
-    height: 60vh;
-  }
-
   .aboutTitle {
     font-size: calc(var(--heading-secondary) / 1.4);
   }

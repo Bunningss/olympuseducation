@@ -1,72 +1,75 @@
 "use client";
-import { useState } from "react";
-
-import useRegisterModal from "@/hooks/useRegisterModal";
+import { useContext, useState } from "react";
 import Modal from "../Modal";
 import Input from "@/components/Input/Input";
-
+import Context from "@/Context/context";
 
 const RegisterModal = () => {
-  const registerModal = useRegisterModal();
+  const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
-  const [ data, setData ] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    phone: '',
-    address: ''
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: "",
   });
 
   const handleChange = (e: any) => {
-    setData({ ...data, [e.target.name]: e.target.value })
-  }
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   const registerInputs = [
     {
-      placeholder: 'First Name',
-      type: 'text',
+      placeholder: "First Name",
+      type: "text",
       required: true,
       onchange: handleChange,
-      name: 'firstName',
+      name: "firstName",
     },
     {
-      placeholder: 'Last Name',
-      type: 'text',
+      placeholder: "Last Name",
+      type: "text",
       required: true,
       onchange: handleChange,
-      name: 'lastName',
+      name: "lastName",
     },
     {
-      placeholder: 'Email Address',
-      type: 'email',
+      placeholder: "Email Address",
+      type: "email",
       required: true,
       onchange: handleChange,
-      name: 'email',
+      name: "email",
     },
     {
-      placeholder: 'Phone Number',
-      type: 'number',
+      placeholder: "Phone Number",
+      type: "number",
       required: false,
       onchange: handleChange,
-      name: 'phone',
+      name: "phone",
     },
     {
-      placeholder: 'Address',
-      type: 'text',
+      placeholder: "Address",
+      type: "text",
       required: true,
       onchange: handleChange,
-      name: 'address',
+      name: "address",
     },
   ];
 
   const bodyContent: JSX.Element = (
     <form>
-      {
-        registerInputs.map((input, indx) => (
-          <Input key={indx} handleChange={input.onchange} name={input.name} placeholder={input.placeholder} required type={input.type} />
-        ))
-      }
+      {registerInputs.map((input, indx) => (
+        <Input
+          key={indx}
+          handleChange={input.onchange}
+          name={input.name}
+          placeholder={input.placeholder}
+          required
+          type={input.type}
+        />
+      ))}
     </form>
   );
 
@@ -74,9 +77,9 @@ const RegisterModal = () => {
   return (
     <Modal
       modalTitle="Register"
-      onClose={registerModal.onClose}
+      onClose={() => setRegisterModalOpen(false)}
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
+      isOpen={registerModalOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}

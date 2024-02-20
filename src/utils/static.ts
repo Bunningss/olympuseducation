@@ -9,7 +9,7 @@ export const socialItems: SocialItemProps[] = [
   {
     label: "Facebook",
     icon: facebook,
-    href: "",
+    href: "https://www.facebook.com/olympuseducation/",
   },
   {
     label: "Instagram",

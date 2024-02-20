@@ -1,0 +1,7 @@
+.dropdown {
+  position: relative;
+}
+
+.modalBody {
+  padding: calc(var(--padding) / 2);
+}

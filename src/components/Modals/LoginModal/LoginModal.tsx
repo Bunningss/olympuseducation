@@ -1,40 +1,48 @@
 "use client";
-import useLoginModal from "@/hooks/useLoginModal";
 import Modal from "../Modal";
-import styles from "./LoginModal.module.css";
-
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Input from "@/components/Input/Input";
-
-
+import Context from "@/Context/context";
 
 const LoginModal = () => {
-  const loginModal = useLoginModal();
+  const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
-  const [ data, setData ] = useState({
-    email: '',
-    password: ''
-  })
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
 
   const handleData = (e: any) => {
-    setData({...data, [e.target.name]: e.target.value })
-  }
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = () => {};
 
   const bodyContent: JSX.Element = (
-    <div>
-      <Input placeholder="Email address" required type="email" name="email" handleChange={handleData} />
-      <Input placeholder="Enter password" required type="password" name="password" handleChange={handleData} />
-    </div>
+    <form>
+      <Input
+        placeholder="Email address"
+        required
+        type="email"
+        name="email"
+        handleChange={handleData}
+      />
+      <Input
+        placeholder="Enter password"
+        required
+        type="password"
+        name="password"
+        handleChange={handleData}
+      />
+    </form>
   );
 
   return (
     <Modal
       modalTitle="Login"
-      onClose={loginModal.onClose}
+      onClose={() => setLoginModalOpen(false)}
       disabled={isLoading}
-      isOpen={loginModal.isOpen}
+      isOpen={loginModalOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}

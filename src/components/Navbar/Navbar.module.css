@@ -1,8 +1,6 @@
 .navbar {
-  margin-top: 50px;
+  margin-top: calc(var(--item-gap) / 3);
   width: 100%;
-  user-select: none;
-  /* background-color: var(--color-background); */
   height: 70px;
 }
 
@@ -26,10 +24,4 @@
 
 .navItem:last-child {
   justify-content: flex-end;
-}
-
-@media screen and (max-width: 600px) {
-  .navItem:nth-child(n + 2) {
-    display: none;
-  }
 }

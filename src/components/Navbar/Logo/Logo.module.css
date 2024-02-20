@@ -1,22 +1,5 @@
-.logoWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .logo {
-  text-transform: uppercase;
-  font-size: var(--font-title);
-  font-weight: var(--font-bolder);
-  letter-spacing: 9px;
-  cursor: pointer;
-}
-
-.motto {
-  text-transform: uppercase;
-  font-weight: var(--font-bolder);
-  letter-spacing: 10.5px;
-  font-size: var(--font-regular);
+  height: 5em;
+  width: 10em;
+  object-fit: contain;
 }

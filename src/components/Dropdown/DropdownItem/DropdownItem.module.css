@@ -1,0 +1,26 @@
+.dropdownItem {
+  text-transform: capitalize;
+  font-weight: var(--font-bold);
+  font-size: var(--font-regular);
+  padding-left: calc(var(--padding) / 3);
+  padding-right: calc(var(--padding) * 2);
+  padding-top: calc(var(--padding) / 4);
+  padding-bottom: calc(var(--padding) / 4);
+  margin: 0.2em 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: calc(var(--item-gap) / 13);
+}
+
+.dropdownItem:hover {
+  background-color: var(--color-background);
+}
+
+.dropdownIcon {
+  height: 1em;
+  width: 1em;
+  object-fit: contain;
+}
