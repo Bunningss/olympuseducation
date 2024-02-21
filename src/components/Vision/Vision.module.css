@@ -26,10 +26,3 @@
     display: none;
   }
 }
-
-@media screen and (max-width: 400px) {
-  .visionTextContainer {
-    margin-top: calc(var(--item-gap) / 15);
-    margin-bottom: calc(var(--item-gap) / 15);
-  }
-}

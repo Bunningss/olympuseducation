@@ -35,3 +35,9 @@
     font-size: calc(var(--font-stroked) / 1.2);
   }
 }
+
+@media screen and (max-width: 400px) {
+  .backgroundTextSecondary {
+    line-height: 1em;
+  }
+}

@@ -15,16 +15,16 @@ const Footer: React.FC = () => {
         <div className={`${roboto.className} ${styles.footer}`}>
           <div className={styles.content}>
             <div className={styles.footerTitle}>
-              <Headers secondary="Want to talk to us?" lightweight />
+              <Headers secondary="Want to talk to us?" />
             </div>
             <div className={styles.footerLink}>
-              <Link href="mailto:olympuseducation@gmail.com">
-                <Headers secondary="olympuseducation@gmail.com" />
+              <Link href="mailto:bd.olympus@gmail.com">
+                <Headers secondary="bd.olympus@gmail.com" lightweight />
               </Link>
             </div>
             <div className={styles.footerLink}>
               <Link href="tel:+8801254845052">
-                <Headers secondary="+8801254845052" />
+                <Headers secondary="+8801254845052" lightweight />
               </Link>
             </div>
             {/* Footer Bottom */}

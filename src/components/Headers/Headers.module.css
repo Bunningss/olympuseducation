@@ -58,6 +58,10 @@
 }
 
 @media screen and (max-width: 400px) {
+  .headerPrimary {
+    font-size: calc(var(--heading-primary) / 1.3);
+  }
+
   .headerSecondary {
     font-size: calc(var(--heading-secondary) / 1.5);
   }
