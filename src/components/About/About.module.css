@@ -41,4 +41,13 @@
   .aboutText {
     margin-bottom: calc(var(--item-gap) / 4);
   }
+
+  .aboutContent {
+    flex-direction: column;
+    gap: calc(var(--item-gap) / 5);
+  }
+
+  .aboutSection {
+    gap: calc(var(--item-gap) / 5);
+  }
 }

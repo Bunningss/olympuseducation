@@ -22,6 +22,7 @@
   opacity: 0.2;
   position: absolute;
   top: 0;
+  left: 0.5em;
 }
 
 @media screen and (max-width: 600px) {
@@ -33,6 +34,7 @@
 
   .backgroundTextSecondary {
     font-size: calc(var(--font-stroked) / 1.2);
+    left: 0;
   }
 }
 

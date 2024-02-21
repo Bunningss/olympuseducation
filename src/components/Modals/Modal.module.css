@@ -46,11 +46,14 @@
 }
 
 .modalCloseButton {
-  width: 20px;
-  height: 20px;
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
   position: absolute;
-  top: 25px;
+  top: 0;
+  bottom: 0;
   right: 10px;
+  margin: auto;
   cursor: pointer;
 }
 
@@ -62,6 +65,7 @@
 .modalTitle {
   padding: 10px 0;
   border-bottom: var(--border-primary);
+  position: relative;
 }
 
 .buttonWrapper {

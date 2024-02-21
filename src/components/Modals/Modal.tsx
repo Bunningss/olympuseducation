@@ -95,6 +95,14 @@ const Modal: React.FC<ModalProps> = ({
         <div className={styles.modalWrapper}>
           <div className={styles.modalTitle}>
             <Title secondary={modalTitle} isSecondaryCentre />
+            {/* Modal Close Button Start */}
+            <Image
+              onClick={handleClose}
+              src={closeBtn}
+              alt="Close button"
+              className={styles.modalCloseButton}
+            />
+            {/* Modal Close Button End */}
           </div>
           <Container>
             <div className={styles.modalBody}>
@@ -117,15 +125,6 @@ const Modal: React.FC<ModalProps> = ({
               </div>
             </div>
           </Container>
-
-          {/* Modal Close Button Start */}
-          <Image
-            onClick={handleClose}
-            src={closeBtn}
-            alt="Close button"
-            className={styles.modalCloseButton}
-          />
-          {/* Modal Close Button End */}
         </div>
       </div>
     </>
