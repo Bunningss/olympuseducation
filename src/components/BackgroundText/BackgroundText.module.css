@@ -32,7 +32,6 @@
   }
 
   .backgroundTextSecondary {
-    line-height: 180px;
     font-size: calc(var(--font-stroked) / 1.2);
   }
 }

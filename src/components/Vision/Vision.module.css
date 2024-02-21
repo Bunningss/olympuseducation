@@ -29,4 +29,8 @@
   .visionText {
     font-size: calc(var(--font-title) / 1.2);
   }
+
+  .visionText:last-child {
+    display: none;
+  }
 }

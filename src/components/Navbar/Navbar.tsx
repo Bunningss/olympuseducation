@@ -9,7 +9,7 @@ import { useContext } from "react";
 import Context from "@/Context/context";
 import login from "../../../public/images/icons/login.png";
 import logout from "../../../public/images/icons/logout.png";
-import about from "../../../public/images/icons/about.png";
+import home from "../../../public/images/icons/home.png";
 import course from "../../../public/images/icons/course.png";
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const navDropdown = (
     <div>
-      <DropdownItem label="about us" icon={about} />
+      <DropdownItem label="home" icon={home} />
       <DropdownItem label="our courses" icon={course} />
       <DropdownItem
         label="login"
@@ -43,8 +43,8 @@ const Navbar = () => {
           <div className={styles.navItem}>
             <Dropdown
               body={navDropdown}
-              dropdownOpen={userDropdownOpen}
-              setDropdownOpen={setUserDropdownOpen}
+              isOpen={userDropdownOpen}
+              onClose={setUserDropdownOpen}
             >
               <User />
             </Dropdown>

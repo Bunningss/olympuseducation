@@ -42,4 +42,5 @@ body {
   overflow-x: hidden;
   color: var(--color-primary);
   font-size: var(--font-regular);
+  user-select: none;
 }

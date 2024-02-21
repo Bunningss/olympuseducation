@@ -4,20 +4,20 @@ import DropdownModal from "./DropdownModal/DropdownModal";
 interface DropdownProps {
   children: React.ReactNode;
   body: JSX.Element;
-  dropdownOpen: boolean;
-  setDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen: boolean;
+  onClose: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   children,
   body,
-  dropdownOpen,
-  setDropdownOpen,
+  isOpen,
+  onClose,
 }) => {
   return (
     <div className={styles.dropdown}>
-      <div onClick={() => setDropdownOpen(!dropdownOpen)}>{children}</div>
-      {dropdownOpen && (
+      <div onClick={() => onClose(!isOpen)}>{children}</div>
+      {isOpen && (
         <DropdownModal>
           <div className={styles.modalBody}>{body}</div>
         </DropdownModal>
