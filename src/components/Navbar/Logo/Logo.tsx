@@ -4,7 +4,7 @@ import Image from "next/image";
 import logo from "../../../../public/images/logo.jpg";
 import Link from "next/link";
 
-const Logo = () => {
+const Logo: React.FC = () => {
   return (
     <div className={`${styles.logoWrapper} ${roboto.className}`}>
       <Link href="/">

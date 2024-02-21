@@ -19,10 +19,8 @@
   --shadow-light: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   --shadow-deep: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   --font-regular: 1em;
-  --font-title: 1.5em;
-  --heading-primary: 8em;
-  --heading-secondary: 4.3em;
-  --heading-medium: 2.38em;
+  --heading-primary: 4.3em;
+  --heading-secondary: 2.38em;
   --font-stroked: 15.5em;
   --font-light: 400;
   --font-bold: 600;
@@ -43,4 +41,9 @@ body {
   color: var(--color-primary);
   font-size: var(--font-regular);
   user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

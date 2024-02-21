@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import styles from "./Modal.module.css";
 import Container from "../Container/Container";
-import Title from "../Title/Title";
+import Title from "../Headers/Headers";
 import Button from "../Button/Button";
 import Image from "next/image";
 import closeBtn from "../../../public/images/icons/closeBtn.png";
@@ -94,11 +94,11 @@ const Modal: React.FC<ModalProps> = ({
         {/* Modal Content */}
         <div className={styles.modalWrapper}>
           <div className={styles.modalTitle}>
-            <Title secondaryTitle={modalTitle} isSecondaryCentre />
+            <Title secondary={modalTitle} isSecondaryCentre />
           </div>
           <Container>
             <div className={styles.modalBody}>
-              <Title secondaryTitle={secondaryTitle} tagline={tagline} />
+              <Title secondary={secondaryTitle} tagline={tagline} />
               <div className={styles.bodyContainer}>{body}</div>
               <div className={styles.buttonWrapper}>
                 {secondaryAction && secondaryLabel && (

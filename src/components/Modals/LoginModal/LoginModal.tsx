@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import Input from "@/components/Input/Input";
 import Context from "@/Context/context";
 
-const LoginModal = () => {
+const LoginModal: React.FC = () => {
   const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({

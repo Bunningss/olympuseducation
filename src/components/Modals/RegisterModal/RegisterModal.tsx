@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import Input from "@/components/Input/Input";
 import Context from "@/Context/context";
 
-const RegisterModal = () => {
+const RegisterModal: React.FC = () => {
   const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({

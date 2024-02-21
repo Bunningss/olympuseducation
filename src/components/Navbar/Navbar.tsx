@@ -12,7 +12,7 @@ import logout from "../../../public/images/icons/logout.png";
 import home from "../../../public/images/icons/home.png";
 import course from "../../../public/images/icons/course.png";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const { userDropdownOpen, setUserDropdownOpen } = useContext(Context);
   const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const { registerModalOpen, setRegisterModalOpen } = useContext(Context);

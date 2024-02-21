@@ -8,24 +8,21 @@
 
 .visionTextContainer {
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--item-gap);
   margin-top: calc(var(--item-gap) / 3);
   margin-bottom: calc(var(--item-gap) / 3);
 }
 
-.visionText {
-  flex: 1;
-  font-size: var(--font-title);
-  font-weight: var(--font-light);
-}
-
 @media screen and (max-width: 600px) {
-  .visionText {
-    font-size: calc(var(--font-title) / 1.2);
+  .visionTextContainer {
+    grid-template-columns: auto;
+    margin-top: calc(var(--item-gap) / 2.5);
+    margin-bottom: calc(var(--item-gap) / 6);
   }
 
-  .visionText:last-child {
+  .visionTextContainer :last-child {
     display: none;
   }
 }
@@ -34,9 +31,5 @@
   .visionTextContainer {
     margin-top: calc(var(--item-gap) / 15);
     margin-bottom: calc(var(--item-gap) / 15);
-  }
-
-  .visionText {
-    font-size: calc(var(--font-title) / 1.25);
   }
 }
