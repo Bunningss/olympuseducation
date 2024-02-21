@@ -38,3 +38,13 @@
     font-size: calc(var(--heading-medium) / 1.25);
   }
 }
+
+@media screen and (max-width: 400px) {
+  .headingMed {
+    font-size: calc(var(--heading-medium) / 1.5);
+  }
+
+  .headingSmall {
+    font-size: calc(var(--font-regular) / 1.25);
+  }
+}

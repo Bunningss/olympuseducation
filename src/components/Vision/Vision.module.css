@@ -21,16 +21,22 @@
 }
 
 @media screen and (max-width: 600px) {
-  .visionTextContainer {
-    flex-direction: column;
-    gap: calc(var(--item-gap) / 3);
-  }
-
   .visionText {
     font-size: calc(var(--font-title) / 1.2);
   }
 
   .visionText:last-child {
     display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .visionTextContainer {
+    margin-top: calc(var(--item-gap) / 15);
+    margin-bottom: calc(var(--item-gap) / 15);
+  }
+
+  .visionText {
+    font-size: calc(var(--font-title) / 1.25);
   }
 }

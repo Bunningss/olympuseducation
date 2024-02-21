@@ -71,3 +71,11 @@
     margin-top: calc(var(--item-gap) / 1.5);
   }
 }
+
+@media screen and (max-width: 400px) {
+  .footerBottom {
+    margin-top: calc(var(--item-gap) / 3);
+
+    gap: calc(var(--item-gap) / 5);
+  }
+}

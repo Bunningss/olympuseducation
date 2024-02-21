@@ -24,7 +24,7 @@ const Footer = () => {
               <a href="mailto:olympus@gmail.com">olympus@gmail.com</a>
             </h2>
             <h2 className={styles.footerLink}>
-              <a href="mailto:olympus@gmail.com">+8801873228724</a>
+              <a href="tel:+8801254845052">+8801254845052</a>
             </h2>
             {/* Footer Bottom */}
             <div className={styles.footerBottom}>
@@ -32,7 +32,7 @@ const Footer = () => {
               <div className={styles.footerBottomContentWrapper}>
                 <h4 className={styles.footerBottomHeader}>We are here</h4>
                 <p className={styles.footerBottomText}>
-                  Marine Drive, Sylhet, Bangladesh.
+                  Panthapath, Dhaka, Bangladesh.
                 </p>
               </div>
               {/* Social */}
