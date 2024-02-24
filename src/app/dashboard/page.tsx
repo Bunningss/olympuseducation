@@ -13,7 +13,6 @@ const Dashboard: FC = () => {
     setvalues({ ...values, [e.target.name]: e.target.value });
   };
 
-  console.log(values);
   return (
     <div>
       <Container>

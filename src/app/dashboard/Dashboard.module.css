@@ -22,12 +22,19 @@
 }
 
 .headerWrapper {
-  margin-top: calc(var(--item-gap) / 9);
-  margin-bottom: calc(var(--item-gap) / 9);
+  margin-top: calc(var(--item-gap) / 15);
+  margin-bottom: calc(var(--item-gap) / 15);
 }
 
 .inputGroup {
   display: flex;
   align-items: center;
   gap: calc(var(--item-gap) / 18);
+}
+
+@media screen and (max-width: 600px) {
+  .inputGroup {
+    gap: 0;
+    flex-wrap: wrap;
+  }
 }
