@@ -6,6 +6,7 @@ import Context from "@/Context/context";
 
 const RegisterModal: React.FC = () => {
   const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
+  const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     firstName: "",
@@ -43,6 +44,13 @@ const RegisterModal: React.FC = () => {
       name: "email",
     },
     {
+      placeholder: "Password",
+      type: "password",
+      required: true,
+      onchange: handleChange,
+      name: "password",
+    },
+    {
       placeholder: "Phone Number",
       type: "number",
       required: false,
@@ -59,7 +67,7 @@ const RegisterModal: React.FC = () => {
   ];
 
   const bodyContent: JSX.Element = (
-    <form>
+    <div>
       {registerInputs.map((input, indx) => (
         <Input
           key={indx}
@@ -70,10 +78,30 @@ const RegisterModal: React.FC = () => {
           type={input.type}
         />
       ))}
-    </form>
+    </div>
   );
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (res.status !== 200) {
+        return;
+      } else {
+        setRegisterModalOpen(false);
+        setLoginModalOpen(true);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <Modal
       modalTitle="Register"

@@ -9,6 +9,7 @@
   --color-background: #f2f8f5;
   --color-white: #ffffff;
   --color-primary: #26302b;
+  --color-mute: #505a55;
   --color-secondary: #23bfb8;
   --color-secondary-light: #e7f2ef;
   --linear-gradient: -webkit-linear-gradient(#23bfb8, #85ea80);
@@ -37,7 +38,6 @@ body {
   background-image: url(../../public/images/background/bg.png);
   background-size: 80%;
   background-color: var(--color-background);
-  overflow-x: hidden;
   color: var(--color-primary);
   font-size: var(--font-regular);
   user-select: none;

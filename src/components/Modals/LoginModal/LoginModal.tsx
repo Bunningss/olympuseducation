@@ -16,10 +16,32 @@ const LoginModal: React.FC = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    try {
+      setIsLoading(true);
+
+      const res = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Context-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.status !== 200) {
+        return;
+      } else {
+        setLoginModalOpen(false);
+      }
+    } catch (err) {
+      console.log(JSON.stringify(err));
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const bodyContent: JSX.Element = (
-    <form>
+    <div>
       <Input
         placeholder="Email address"
         required
@@ -34,7 +56,7 @@ const LoginModal: React.FC = () => {
         name="password"
         handleChange={handleData}
       />
-    </form>
+    </div>
   );
 
   return (

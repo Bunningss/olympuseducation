@@ -1,39 +1,41 @@
-import cryptoJs from 'crypto-js';
-import jwt from 'jsonwebtoken';
+import cryptoJs from "crypto-js";
+import jwt from "jsonwebtoken";
 import { User } from "@/models/User";
-import { NextRequest, NextResponse } from "next/server";
-import connectDb from '@/utils/db/connect';
+import { NextRequest } from "next/server";
+import connectDb from "@/utils/db/connect";
+import { apiResponse } from "@/utils/apiRespose";
 
+export async function POST(req: NextRequest) {
+  await connectDb();
 
-export async function POST(req: NextRequest, res: NextResponse) {
+  try {
+    const { email, password } = await req.json();
 
-    connectDb()
-    
-    try {
-        const { email, password } = await req.json()
+    const user = await User.findOne({ email });
 
-        const user = await User.findOne({ email })
-    
-        if (!user) return new Response("Incorrect email or password!")
-    
-        const decryptedPass = cryptoJs.AES.decrypt(user.password, process.env.CRYPTO_SEC || '').toString(cryptoJs.enc.Utf8);
-        
-        
-        if(decryptedPass === password) {
-            
-            const { firstName, lastName, email, address, role } = user;
-            
-            const accessToken = jwt.sign({firstName, lastName, email, address, role}, process.env.JWT_SEC || '');
-            
-            return Response.json({
-                firstName, lastName, email, address, role, accessToken
-            })
-        } else {
-            return new Response("Incorrect email or password!")
-        }
-    } catch (err) {
-        console.log(err)
-        return new Response("An error occured!")
+    if (!user) return apiResponse("Incorrect email or password!", 400);
+
+    const decryptedPass = cryptoJs.AES.decrypt(
+      user.password,
+      process.env.CRYPTO_SEC || ""
+    ).toString(cryptoJs.enc.Utf8);
+
+    if (decryptedPass === password) {
+      const { firstName, lastName, email, address, role } = user;
+
+      const accessToken = jwt.sign(
+        { firstName, lastName, email, address, role },
+        process.env.JWT_SEC || ""
+      );
+
+      return apiResponse(
+        { firstName, lastName, email, address, role, accessToken },
+        200
+      );
+    } else {
+      return apiResponse("Incorrect email or password!", 400);
     }
-
+  } catch (err) {
+    return apiResponse("An error occured!", 400);
+  }
 }

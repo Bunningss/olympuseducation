@@ -1,53 +1,56 @@
-import mongoose from 'mongoose'
+import mongoose, { Model } from "mongoose";
 
-interface UserProps {
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String,
-    picture: String
-    role: String,
-}
+import { UserModelProps } from "@/utils/types";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     firstName: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     lastName: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
-    phone: {},
-    emergencyContact: {},
-    startDate: {},
-    expectedBandScore: {},
-    bandScoreAchieved: {},
-    nidNumber: {},
-    passportNumber: {},
+    phone: {
+      type: Number,
+      required: true,
+    },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     address: {
-        type: String,
-        required: false
+      type: String,
+      required: false,
     },
     picture: {
-        type: String,
-        required: false
+      type: String,
+      required: false,
     },
     role: {
-        type: String,
-        enum: [ 'SUPERADMIN', 'ADMIN', 'IT', 'ACCOUNTS', 'QUALITY', 'ADMISSION', 'FLOOR', 'USER', ],
-        required: false,
-        default: 'USER'
-    }
-}, { timestamps: true })
+      type: String,
+      enum: [
+        "SUPERADMIN",
+        "ADMIN",
+        "IT",
+        "ACCOUNTS",
+        "QUALITY",
+        "ADMISSION",
+        "FLOOR",
+        "USER",
+      ],
+      required: false,
+      default: "USER",
+    },
+  },
+  { timestamps: true }
+);
 
-export const User = mongoose.models?.Users || mongoose.model("Users", userSchema)
+export const User: Model<UserModelProps> =
+  mongoose.models?.Users || mongoose.model("Users", userSchema);

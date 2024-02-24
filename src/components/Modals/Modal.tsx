@@ -33,8 +33,6 @@ const Modal: React.FC<ModalProps> = ({
   body,
   actionLabel,
   disabled,
-  secondaryAction,
-  secondaryLabel,
   large,
   secondaryTitle,
   tagline,
@@ -60,21 +58,17 @@ const Modal: React.FC<ModalProps> = ({
     }, 300);
   }, [disabled, onClose]);
 
-  const handleSubmit = useCallback(() => {
-    if (disabled) {
-      return;
-    }
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      if (disabled) {
+        return;
+      }
 
-    onSubmit();
-  }, [disabled, onSubmit]);
-
-  const handleSecondaryAction = useCallback(() => {
-    if (disabled || !secondaryAction) {
-      return;
-    }
-
-    secondaryAction();
-  }, [disabled, secondaryAction]);
+      e.preventDefault();
+      onSubmit();
+    },
+    [disabled, onSubmit]
+  );
 
   if (!isOpen) {
     return null;
@@ -105,25 +99,13 @@ const Modal: React.FC<ModalProps> = ({
             {/* Modal Close Button End */}
           </div>
           <Container>
-            <div className={styles.modalBody}>
+            <form className={styles.modalBody} onSubmit={handleSubmit}>
               <Title secondary={secondaryTitle} tagline={tagline} />
               <div className={styles.bodyContainer}>{body}</div>
               <div className={styles.buttonWrapper}>
-                {secondaryAction && secondaryLabel && (
-                  <Button
-                    outline
-                    disabled={disabled}
-                    label={secondaryLabel}
-                    onClick={handleSecondaryAction}
-                  />
-                )}
-                <Button
-                  disabled={disabled}
-                  label={actionLabel}
-                  onClick={handleSubmit}
-                />
+                <Button disabled={disabled} label={actionLabel} />
               </div>
-            </div>
+            </form>
           </Container>
         </div>
       </div>

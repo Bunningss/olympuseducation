@@ -1,24 +1,30 @@
-import cryptoJs from 'crypto-js';
+import cryptoJs from "crypto-js";
 import { User } from "@/models/User";
-import { NextRequest, NextResponse } from "next/server";
 import connectDb from "@/utils/db/connect";
+import { NextRequest } from "next/server";
+import { apiResponse } from "@/utils/apiRespose";
 
+export async function POST(req: NextRequest) {
+  await connectDb();
 
-export async function POST(request: NextRequest, response: NextResponse) {
-    connectDb()
+  const body = await req.json();
 
-    let {firstName, lastName, email, password} = await request.json()
-    try {
-        const existingUser = await User.findOne({ email: email })
-        if (existingUser) return new Response("Email already exist")
-        const hashedPass = cryptoJs.AES.encrypt(password, process.env.CRYPTO_SEC || '').toString()
-        let user = new User({
-            firstName, lastName, email, password: hashedPass
-        })
-        await user.save()
-        return new Response("User Saved", { status: 200})
-    } catch (err) {
-        console.log(err)
-        return new Response("An error occured!", { status: 400 })
-    }
+  try {
+    const existingUser = await User.findOne({ email: body.email });
+
+    if (existingUser) return apiResponse("User already exist.", 500);
+
+    const hashedPass = cryptoJs.AES.encrypt(
+      body.password,
+      process.env.CRYPTO_SEC || ""
+    ).toString();
+
+    let user = new User({ ...body, password: hashedPass });
+
+    await user.save();
+    return apiResponse("User saved", 200);
+  } catch (err) {
+    console.log(err);
+    return apiResponse(err, 400);
+  }
 }

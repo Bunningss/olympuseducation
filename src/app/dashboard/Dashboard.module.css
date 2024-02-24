@@ -1,0 +1,33 @@
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboardFormWrapper {
+  max-width: 40em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  gap: calc(var(--item-gap) / 18);
+  margin-top: calc(var(--item-gap) / 15);
+  margin-bottom: calc(var(--item-gap) / 15);
+}
+
+.headerWrapper {
+  margin-top: calc(var(--item-gap) / 9);
+  margin-bottom: calc(var(--item-gap) / 9);
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--item-gap) / 18);
+}

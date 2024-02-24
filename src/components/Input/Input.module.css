@@ -2,10 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
   padding: 0px 0 5px 0;
 }
 
+.label {
+  margin-top: 0.5em;
+  font-size: var(--font-regular);
+  font-weight: var(--font-bold);
+}
+
 .inputField {
+  width: 100%;
   border-radius: var(--border-radius);
   border: var(--border-primary);
   outline: none;

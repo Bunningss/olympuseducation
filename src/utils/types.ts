@@ -18,3 +18,44 @@ export interface ContextProps {
 export interface ContextProviderProps {
   children: React.ReactNode;
 }
+
+export interface UserModelProps {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: number;
+  password: string;
+  address?: string; // Optional
+  role?:
+    | "SUPERADMIN"
+    | "ADMIN"
+    | "IT"
+    | "ACCOUNTS"
+    | "QUALITY"
+    | "ADMISSION"
+    | "FLOOR"
+    | "USER"
+    | "STUDENT"; // Optional with default
+  picture: String;
+  createdAt?: Date; // From timestamps
+  updatedAt?: Date; // From timestamps
+}
+
+export interface StudentModelProps {
+  batchNumber: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: number;
+  emergencyContact?: number; // Optional
+  startDate?: number;
+  expectedBandScore: number;
+  bandScoreAchieved?: number; // Optional
+  nidNumber?: number; // Optional
+  passportNumber?: string;
+  address?: string; // Optional
+  picture?: string; // Optional
+  role?: "STUDENT"; // Optional with default
+  createdAt?: Date; // From timestamps
+  updatedAt?: Date; // From timestamps
+}
