@@ -1,9 +1,10 @@
 import cryptoJs from "crypto-js";
 import jwt from "jsonwebtoken";
 import { User } from "@/models/User";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import connectDb from "@/utils/db/connect";
 import { apiResponse } from "@/utils/apiRespose";
+import cookie from "cookie";
 
 export async function POST(req: NextRequest) {
   await connectDb();
@@ -28,9 +29,20 @@ export async function POST(req: NextRequest) {
         process.env.JWT_SEC || ""
       );
 
-      return apiResponse(
-        { firstName, lastName, email, address, role, accessToken },
-        200
+      const serialized = cookie.serialize("access_token", accessToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 1,
+      });
+
+      return new Response(
+        JSON.stringify({ firstName, lastName, email, address, role }),
+        {
+          status: 200,
+          headers: { "Set-Cookie": serialized },
+        }
       );
     } else {
       return apiResponse("Incorrect email or password!", 400);

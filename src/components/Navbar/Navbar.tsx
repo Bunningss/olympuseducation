@@ -5,7 +5,7 @@ import Logo from "./Logo/Logo";
 import Dropdown from "../Dropdown/Dropdown";
 import User from "../User/User";
 import DropdownItem from "../Dropdown/DropdownItem/DropdownItem";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Context from "@/Context/context";
 import login from "../../../public/images/icons/login.png";
 import logout from "../../../public/images/icons/logout.png";
@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
+
       <DropdownItem
         label="login"
         action={() => setLoginModalOpen(!loginModalOpen)}
@@ -35,12 +36,14 @@ const Navbar: React.FC = () => {
         action={() => setRegisterModalOpen(!registerModalOpen)}
         icon={register}
       />
-      <DropdownItem label="logout" icon={logout} />
+
       <DropdownItem
         label="dashboard"
         action={() => router.push("/dashboard")}
         icon={admin}
       />
+
+      <DropdownItem label="logout" icon={logout} />
     </div>
   );
   return (

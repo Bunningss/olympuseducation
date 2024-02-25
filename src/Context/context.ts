@@ -8,6 +8,14 @@ const Context = createContext<ContextProps>({
   setLoginModalOpen: () => {},
   registerModalOpen: false,
   setRegisterModalOpen: () => {},
+  user: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    role: "",
+  },
+  setUser: () => {},
 });
 
 export default Context;

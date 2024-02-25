@@ -6,6 +6,14 @@ export interface SocialItemProps {
   href: string;
 }
 
+export interface UserProps {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  address: string;
+}
+
 export interface ContextProps {
   userDropdownOpen: boolean;
   setUserDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,6 +21,8 @@ export interface ContextProps {
   setLoginModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   registerModalOpen: boolean;
   setRegisterModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  user: UserProps;
+  setUser: React.Dispatch<React.SetStateAction<UserProps>>;
 }
 
 export interface ContextProviderProps {

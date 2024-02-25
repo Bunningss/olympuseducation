@@ -1,6 +1,6 @@
 "use client";
 import Modal from "../Modal";
-import { useContext, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import Input from "@/components/Input/Input";
 import Context from "@/Context/context";
 
@@ -12,7 +12,7 @@ const LoginModal: React.FC = () => {
     password: "",
   });
 
-  const handleData = (e: any) => {
+  const handleData = (e: ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
@@ -28,8 +28,10 @@ const LoginModal: React.FC = () => {
         body: JSON.stringify(data),
       });
 
+      const { firstName, lastName, email, address, role } = await res.json();
+
       if (res.status !== 200) {
-        return;
+        return null;
       } else {
         setLoginModalOpen(false);
       }
