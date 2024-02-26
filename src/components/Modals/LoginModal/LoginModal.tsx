@@ -30,13 +30,12 @@ const LoginModal: React.FC = () => {
       });
 
       const userData = await res.json();
-
       if (res.status !== 200) {
         return null;
       } else {
         userLogin(userData);
         setLoginModalOpen(false);
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (err) {
       console.log(JSON.stringify(err));

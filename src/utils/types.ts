@@ -37,16 +37,7 @@ export interface UserModelProps {
   phone: number;
   password: string;
   address?: string; // Optional
-  role?:
-    | "SUPERADMIN"
-    | "ADMIN"
-    | "IT"
-    | "ACCOUNTS"
-    | "QUALITY"
-    | "ADMISSION"
-    | "FLOOR"
-    | "USER"
-    | "STUDENT"; // Optional with default
+  role?: "SUPERADMIN" | "ADMIN" | "LEVEL 2" | "USER" | "STUDENT"; // Optional with default
   picture: String;
   createdAt?: Date; // From timestamps
   updatedAt?: Date; // From timestamps

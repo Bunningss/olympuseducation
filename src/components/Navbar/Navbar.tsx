@@ -20,8 +20,13 @@ const Navbar: React.FC = () => {
   const { userDropdownOpen, setUserDropdownOpen } = useContext(Context);
   const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
-  const { user } = useContext(Context);
+  const { user, setUser } = useContext(Context);
 
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user") || "{}");
+    setUser(data);
+  }, []);
+  console.log(user);
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
@@ -42,7 +47,7 @@ const Navbar: React.FC = () => {
         </>
       )}
 
-      {user.role !== "USER" && "IT" && "QUALITY" && "FLOOR" && (
+      {user.role === "SUPER ADMIN" && "ADMIN" && "LEVEL 2" && (
         <DropdownItem
           label="dashboard"
           action={() => router.push("/dashboard")}

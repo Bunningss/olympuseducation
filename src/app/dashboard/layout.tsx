@@ -7,9 +7,8 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
-  const { isValid } = useValidate();
-
-  if (!isValid) return null;
+  const { user } = useValidate();
+  if (user.role !== "SUPER ADMIN" && "ADMIN" && "LEVEL 2") return null;
 
   return <main>{children}</main>;
 };
