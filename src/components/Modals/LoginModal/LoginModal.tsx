@@ -11,6 +11,7 @@ const LoginModal: React.FC = () => {
     email: "",
     password: "",
   });
+  const { userLogin } = useContext(Context);
 
   const handleData = (e: ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -28,12 +29,14 @@ const LoginModal: React.FC = () => {
         body: JSON.stringify(data),
       });
 
-      const { firstName, lastName, email, address, role } = await res.json();
+      const userData = await res.json();
 
       if (res.status !== 200) {
         return null;
       } else {
+        userLogin(userData);
         setLoginModalOpen(false);
+        window.location.reload();
       }
     } catch (err) {
       console.log(JSON.stringify(err));

@@ -23,6 +23,7 @@ export interface ContextProps {
   setRegisterModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   user: UserProps;
   setUser: React.Dispatch<React.SetStateAction<UserProps>>;
+  userLogin: (userData: UserProps) => void;
 }
 
 export interface ContextProviderProps {

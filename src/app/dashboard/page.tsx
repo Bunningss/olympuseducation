@@ -20,7 +20,7 @@ const Dashboard: FC = () => {
           <div className={styles.dashboardFormWrapper}>
             <div className={styles.buttonWrapper}>
               <Button label="add batch number" outline />
-              <Button label="view studet data" />
+              <Button label="view student data" />
             </div>
             <div className={styles.buttonWrapper}>
               <Button label="add employee data" />

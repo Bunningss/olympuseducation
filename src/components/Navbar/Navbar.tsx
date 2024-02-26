@@ -20,30 +20,37 @@ const Navbar: React.FC = () => {
   const { userDropdownOpen, setUserDropdownOpen } = useContext(Context);
   const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
+  const { user } = useContext(Context);
 
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      <DropdownItem
-        label="login"
-        action={() => setLoginModalOpen(!loginModalOpen)}
-        icon={login}
-      />
-      <DropdownItem
-        label="register"
-        action={() => setRegisterModalOpen(!registerModalOpen)}
-        icon={register}
-      />
+      {!user.firstName && (
+        <>
+          <DropdownItem
+            label="login"
+            action={() => setLoginModalOpen(!loginModalOpen)}
+            icon={login}
+          />
+          <DropdownItem
+            label="register"
+            action={() => setRegisterModalOpen(!registerModalOpen)}
+            icon={register}
+          />
+        </>
+      )}
 
-      <DropdownItem
-        label="dashboard"
-        action={() => router.push("/dashboard")}
-        icon={admin}
-      />
+      {user.role !== "USER" && "IT" && "QUALITY" && "FLOOR" && (
+        <DropdownItem
+          label="dashboard"
+          action={() => router.push("/dashboard")}
+          icon={admin}
+        />
+      )}
 
-      <DropdownItem label="logout" icon={logout} />
+      {user.firstName && <DropdownItem label="logout" icon={logout} />}
     </div>
   );
   return (

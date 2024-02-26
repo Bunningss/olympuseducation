@@ -16,6 +16,7 @@ const Context = createContext<ContextProps>({
     role: "",
   },
   setUser: () => {},
+  userLogin: () => {},
 });
 
 export default Context;
