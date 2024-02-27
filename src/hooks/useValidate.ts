@@ -13,7 +13,7 @@ const useValidate = () => {
 
   useEffect(() => {
     const isVerified = async () => {
-      const res = await fetch("http://localhost:3000/api/validate", {
+      const res = await fetch("api/validate", {
         method: "GET",
       });
       const user = await res.json();

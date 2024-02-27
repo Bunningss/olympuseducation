@@ -1,6 +1,6 @@
 "use client";
 import useValidate from "@/hooks/useValidate";
-import { FC, ReactNode, useCallback, useEffect, useState } from "react";
+import { FC, ReactNode } from "react";
 
 interface DashboardLayoutProps {
   children: ReactNode;

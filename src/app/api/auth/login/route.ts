@@ -26,7 +26,8 @@ export async function POST(req: NextRequest) {
 
       const accessToken = jwt.sign(
         { firstName, lastName, email, address, role },
-        process.env.JWT_SEC || ""
+        process.env.JWT_SEC || "",
+        { expiresIn: 1800 }
       );
 
       const serialized = cookie.serialize("access_token", accessToken, {
@@ -34,7 +35,7 @@ export async function POST(req: NextRequest) {
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
         path: "/",
-        maxAge: 60 * 60 * 24 * 1,
+        maxAge: 1800, // 30 minutes
       });
 
       return new Response(

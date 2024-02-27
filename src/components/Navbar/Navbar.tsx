@@ -26,7 +26,6 @@ const Navbar: React.FC = () => {
     const data = JSON.parse(localStorage.getItem("user") || "{}");
     setUser(data);
   }, []);
-  console.log(user);
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
