@@ -5,18 +5,20 @@ interface DropdownProps {
   children: React.ReactNode;
   body: JSX.Element;
   isOpen: boolean;
-  onClose: React.Dispatch<React.SetStateAction<boolean>>;
+  onOpen: () => void;
+  onClose: () => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   children,
   body,
   isOpen,
+  onOpen,
   onClose,
 }) => {
   return (
     <div className={styles.dropdown}>
-      <div onClick={() => onClose(!isOpen)}>{children}</div>
+      <div onClick={isOpen ? onClose : onOpen}>{children}</div>
       {isOpen && (
         <DropdownModal>
           <div className={styles.modalBody}>{body}</div>

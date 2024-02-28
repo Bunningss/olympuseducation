@@ -2,16 +2,17 @@
 import Modal from "../Modal";
 import { ChangeEvent, useContext, useState } from "react";
 import Input from "@/components/Input/Input";
-import Context from "@/Context/context";
+import useLoginModal from "@/hooks/zustand/useLoginModal";
+import useUserState from "@/hooks/zustand/useUserState";
 
 const LoginModal: React.FC = () => {
-  const { loginModalOpen, setLoginModalOpen } = useContext(Context);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  const { userLogin } = useContext(Context);
+  const loginModal = useLoginModal();
+  const userState = useUserState();
 
   const handleData = (e: ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -33,8 +34,8 @@ const LoginModal: React.FC = () => {
       if (res.status !== 200) {
         return null;
       } else {
-        userLogin(userData);
-        setLoginModalOpen(false);
+        userState.onLogin(userData);
+        loginModal.onClose();
         // window.location.reload();
       }
     } catch (err) {
@@ -66,9 +67,9 @@ const LoginModal: React.FC = () => {
   return (
     <Modal
       modalTitle="Login"
-      onClose={() => setLoginModalOpen(false)}
+      onClose={loginModal.onClose}
       disabled={isLoading}
-      isOpen={loginModalOpen}
+      isOpen={loginModal.isOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}

@@ -1,6 +1,6 @@
+import "@/styles/globals.css";
 import { nunito } from "@/fonts/fonts";
 import type { Metadata } from "next";
-import "@/styles/globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
@@ -18,14 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ContextProvider>
-        <body className={nunito.className}>
-          <Navbar />
-          <RegisterModal />
-          <LoginModal />
-          {children}
-        </body>
-      </ContextProvider>
+      <body className={nunito.className}>
+        <Navbar />
+        <RegisterModal />
+        <LoginModal />
+        {children}
+      </body>
     </html>
   );
 }

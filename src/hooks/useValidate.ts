@@ -18,13 +18,7 @@ const useValidate = () => {
       });
       const user = await res.json();
 
-      if (
-        user.isValid &&
-        user?.user?.role !== "USER" &&
-        "FLOOR" &&
-        "QUALITY" &&
-        "ACCOUNTS"
-      ) {
+      if (user.isValid) {
         setIsValid(user.isValid);
         setUser(user.user);
       } else {

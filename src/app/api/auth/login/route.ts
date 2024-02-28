@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
         maxAge: 1800, // 30 minutes
       });
 
-      return new Response(
+      return NextResponse.json(
         JSON.stringify({ firstName, lastName, email, address, role }),
         {
           status: 200,
