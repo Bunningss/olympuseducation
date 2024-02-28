@@ -1,18 +1,16 @@
 import { useContext } from "react";
 import styles from "./DropdownModal.module.css";
 import Context from "@/Context/context";
+import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 
 interface DropdownModalProps {
   children: React.ReactNode;
 }
 
 const DropdownModal: React.FC<DropdownModalProps> = ({ children }) => {
-  const { userDropdownOpen, setUserDropdownOpen } = useContext(Context);
+  const dropdown = useNavDropdown();
   return (
-    <div
-      className={styles.dropdownModal}
-      onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-    >
+    <div className={styles.dropdownModal} onClick={dropdown.onClose}>
       {children}
     </div>
   );

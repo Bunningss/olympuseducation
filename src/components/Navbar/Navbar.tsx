@@ -12,26 +12,33 @@ import admin from "../../../public/images/icons/admin.png";
 import home from "../../../public/images/icons/home.png";
 import course from "../../../public/images/icons/course.png";
 import { useRouter } from "next/navigation";
-import useUserState from "@/hooks/zustand/useUserState";
 import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
+import useRegisterModal from "@/hooks/zustand/useRegisterModal";
+import useUser from "@/hooks/useUser";
+import useLogout from "@/hooks/useLogout";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
-  const userState = useUserState();
-  const user = JSON.parse(userState.user);
+  const registerModal = useRegisterModal();
+  const { user } = useUser();
+  const { isloggedOut } = useLogout();
 
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      {!userState.user && (
+      {!user && (
         <>
           <DropdownItem label="login" action={loginModal.onOpen} icon={login} />
-          <DropdownItem label="register" action={() => {}} icon={register} />
+          <DropdownItem
+            label="register"
+            action={registerModal.onOpen}
+            icon={register}
+          />
         </>
       )}
 
@@ -43,7 +50,9 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {userState.user && <DropdownItem label="logout" icon={logout} />}
+      {user && (
+        <DropdownItem label="logout" icon={logout} action={isloggedOut} />
+      )}
     </div>
   );
   return (

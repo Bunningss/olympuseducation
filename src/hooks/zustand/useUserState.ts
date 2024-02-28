@@ -3,16 +3,18 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
 interface UserState {
-  user: UserProps | string;
+  user: UserProps | null;
   onLogin: (userData: UserProps) => void;
+  onLogout: () => void;
 }
 
 const useUserState = create<UserState>()(
   devtools(
     persist(
       (set) => ({
-        user: "{}",
+        user: null,
         onLogin: (userData: UserProps) => set((state) => ({ user: userData })),
+        onLogout: () => set((state) => ({ user: null })),
       }),
       { name: "user" }
     )

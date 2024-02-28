@@ -16,9 +16,13 @@ const Dropdown: React.FC<DropdownProps> = ({
   onOpen,
   onClose,
 }) => {
+  const handleClick = () => {
+    isOpen ? onClose() : onOpen();
+  };
+
   return (
     <div className={styles.dropdown}>
-      <div onClick={isOpen ? onClose : onOpen}>{children}</div>
+      <div onClick={handleClick}>{children}</div>
       {isOpen && (
         <DropdownModal>
           <div className={styles.modalBody}>{body}</div>

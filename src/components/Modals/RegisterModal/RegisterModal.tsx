@@ -1,12 +1,13 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Modal from "../Modal";
 import Input from "@/components/Input/Input";
-import Context from "@/Context/context";
+import useRegisterModal from "@/hooks/zustand/useRegisterModal";
+import useLoginModal from "@/hooks/zustand/useLoginModal";
 
 const RegisterModal: React.FC = () => {
-  const { registerModalOpen, setRegisterModalOpen } = useContext(Context);
-  const { loginModalOpen, setLoginModalOpen } = useContext(Context);
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     firstName: "",
@@ -92,8 +93,8 @@ const RegisterModal: React.FC = () => {
       if (res.status !== 200) {
         return;
       } else {
-        setRegisterModalOpen(false);
-        setLoginModalOpen(true);
+        registerModal.onClose();
+        loginModal.onOpen();
       }
     } catch (err) {
       console.log(err);
@@ -105,9 +106,9 @@ const RegisterModal: React.FC = () => {
   return (
     <Modal
       modalTitle="Register"
-      onClose={() => setRegisterModalOpen(false)}
+      onClose={registerModal.onClose}
       disabled={isLoading}
-      isOpen={registerModalOpen}
+      isOpen={registerModal.isOpen}
       body={bodyContent}
       actionLabel="Continue"
       onSubmit={handleSubmit}

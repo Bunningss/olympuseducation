@@ -36,7 +36,7 @@ const LoginModal: React.FC = () => {
       } else {
         userState.onLogin(userData);
         loginModal.onClose();
-        // window.location.reload();
+        window.location.reload();
       }
     } catch (err) {
       console.log(JSON.stringify(err));
