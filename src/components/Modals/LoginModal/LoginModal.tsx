@@ -3,7 +3,6 @@ import Modal from "../Modal";
 import { ChangeEvent, useContext, useState } from "react";
 import Input from "@/components/Input/Input";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
-import useUserState from "@/hooks/zustand/useUserState";
 
 const LoginModal: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +11,6 @@ const LoginModal: React.FC = () => {
     password: "",
   });
   const loginModal = useLoginModal();
-  const userState = useUserState();
 
   const handleData = (e: ChangeEvent<HTMLInputElement>) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -30,11 +28,9 @@ const LoginModal: React.FC = () => {
         body: JSON.stringify(data),
       });
 
-      const userData = await res.json();
       if (res.status !== 200) {
         return null;
       } else {
-        userState.onLogin(userData);
         loginModal.onClose();
         window.location.reload();
       }

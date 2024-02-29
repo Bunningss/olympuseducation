@@ -14,22 +14,6 @@ export interface UserProps {
   address: string;
 }
 
-export interface ContextProps {
-  userDropdownOpen: boolean;
-  setUserDropdownOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  loginModalOpen: boolean;
-  setLoginModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  registerModalOpen: boolean;
-  setRegisterModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  user: UserProps;
-  setUser: React.Dispatch<React.SetStateAction<UserProps>>;
-  userLogin: (userData: UserProps) => void;
-}
-
-export interface ContextProviderProps {
-  children: React.ReactNode;
-}
-
 export interface UserModelProps {
   firstName: string;
   lastName: string;
@@ -44,12 +28,17 @@ export interface UserModelProps {
 }
 
 export interface StudentModelProps {
+  course: "IELTS" | "SPOKEN" | "BASIC" | "HSC" | "SSC";
   batchNumber: string;
   firstName: string;
   lastName: string;
   email: string;
   phone: number;
-  emergencyContact?: number; // Optional
+  amount: number;
+  referredBy?: string;
+  emergencyContactName: string; // Optional
+  emergencyContactNumber: number; // Optional
+  emergencyContactRelation: string; // Optional
   startDate?: number;
   expectedBandScore: number;
   bandScoreAchieved?: number; // Optional
@@ -60,4 +49,9 @@ export interface StudentModelProps {
   role?: "STUDENT"; // Optional with default
   createdAt?: Date; // From timestamps
   updatedAt?: Date; // From timestamps
+}
+
+export interface SelectDataProps {
+  label: string;
+  value: string;
 }

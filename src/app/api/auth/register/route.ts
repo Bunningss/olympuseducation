@@ -5,11 +5,10 @@ import { NextRequest } from "next/server";
 import { apiResponse } from "@/utils/apiRespose";
 
 export async function POST(req: NextRequest) {
-  await connectDb();
-
-  const body = await req.json();
-
   try {
+    await connectDb();
+
+    const body = await req.json();
     const existingUser = await User.findOne({ email: body.email });
 
     if (existingUser) return apiResponse("User already exist.", 500);

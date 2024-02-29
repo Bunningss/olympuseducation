@@ -7,9 +7,8 @@ import { apiResponse } from "@/utils/apiRespose";
 import cookie from "cookie";
 
 export async function POST(req: NextRequest) {
-  await connectDb();
-
   try {
+    await connectDb();
     const { email, password } = await req.json();
 
     const user = await User.findOne({ email });

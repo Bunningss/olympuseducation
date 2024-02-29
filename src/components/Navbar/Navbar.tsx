@@ -15,15 +15,15 @@ import { useRouter } from "next/navigation";
 import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
-import useUser from "@/hooks/useUser";
 import useLogout from "@/hooks/useLogout";
+import useValidate from "@/hooks/useValidate";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const { user } = useUser();
+  const { user } = useValidate();
   const { isloggedOut } = useLogout();
 
   const navDropdown = (
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      {!user && (
+      {!user.firstName && (
         <>
           <DropdownItem label="login" action={loginModal.onOpen} icon={login} />
           <DropdownItem
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {user && (
+      {user.firstName && (
         <DropdownItem label="logout" icon={logout} action={isloggedOut} />
       )}
     </div>

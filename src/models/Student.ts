@@ -3,6 +3,11 @@ import mongoose, { Model } from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    course: {
+      type: String,
+      required: true,
+      enum: ["IELTS", "SPOKEN", "HSC", "SSC", "BASIC"],
+    },
     batchNumber: {
       type: String,
       required: true,
@@ -24,7 +29,15 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    emergencyContact: { type: Number, required: false },
+    amount: {
+      type: Number,
+      required: true,
+    },
+    referredBy: {
+      type: String,
+      required: false,
+    },
+    emergencyContactName: { type: String, required: false },
     startDate: {
       type: Date,
       required: false,
