@@ -6,15 +6,19 @@ interface CustomJwtPayload extends jwt.JwtPayload {
 }
 
 export const verifyToken = (req: NextRequest) => {
-  const token = req.cookies.get("access_token");
+  try {
+    const token = req.cookies.get("access_token");
 
-  if (!token) {
-    return null;
+    if (!token) {
+      return null;
+    }
+    const { role } = jwt.verify(
+      token.value,
+      process.env.JWT_SEC || ""
+    ) as CustomJwtPayload;
+
+    return role;
+  } catch (err) {
+    console.log(err);
   }
-  const { role } = jwt.verify(
-    token.value,
-    process.env.JWT_SEC || ""
-  ) as CustomJwtPayload;
-
-  return role;
 };
