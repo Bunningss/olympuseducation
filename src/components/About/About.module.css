@@ -26,6 +26,12 @@
   text-decoration: underline;
 }
 
+@media screen and (max-width: 820px) {
+  .aboutContent {
+    gap: calc(var(--item-gap) / 3);
+  }
+}
+
 @media screen and (max-width: 600px) {
   .aboutContent {
     flex-direction: column;

@@ -1,7 +1,7 @@
 import cookie from "cookie";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     const serialized = cookie.serialize("access_token", "no_cookie_for_you.", {
       httpOnly: true,

@@ -15,6 +15,12 @@
   margin-bottom: calc(var(--item-gap) / 3);
 }
 
+@media screen and (max-width: 820px) {
+  .visionTextContainer {
+    gap: calc(var(--item-gap) / 3);
+  }
+}
+
 @media screen and (max-width: 600px) {
   .visionTextContainer {
     grid-template-columns: auto;
