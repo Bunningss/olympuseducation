@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import styles from "./DropdownModal.module.css";
-import Context from "@/Context/context";
 import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 
 interface DropdownModalProps {
