@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import { ChangeEvent, useContext, useState } from "react";
 import Input from "@/components/Input/Input";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
+import { requestUrl } from "@/utils/static";
 
 const LoginModal: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +21,7 @@ const LoginModal: React.FC = () => {
     try {
       setIsLoading(true);
 
-      const res = await fetch("api/auth/login", {
+      const res = await fetch(requestUrl + "auth/login", {
         method: "POST",
         headers: {
           "Context-Type": "application/json",

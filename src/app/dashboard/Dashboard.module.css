@@ -21,11 +21,6 @@
   margin-bottom: calc(var(--item-gap) / 15);
 }
 
-.headerWrapper {
-  margin-top: calc(var(--item-gap) / 15);
-  margin-bottom: calc(var(--item-gap) / 15);
-}
-
 .inputGroup {
   display: flex;
   align-items: center;

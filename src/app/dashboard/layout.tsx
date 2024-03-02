@@ -1,5 +1,6 @@
 "use client";
 import useValidate from "@/hooks/useValidate";
+import { useRouter } from "next/navigation";
 import { FC, ReactNode } from "react";
 
 interface DashboardLayoutProps {
@@ -8,9 +9,14 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   const { user } = useValidate();
-  if (user.role !== "SUPER ADMIN" && "ADMIN" && "LEVEL 2") return null;
+  const { push } = useRouter();
 
-  return <main>{children}</main>;
+  if (user.role !== "SUPER ADMIN" && "ADMIN" && "LEVEL 2") {
+    <span>Loading</span>;
+    push("/");
+  } else {
+    return <main>{children}</main>;
+  }
 };
 
 export default DashboardLayout;

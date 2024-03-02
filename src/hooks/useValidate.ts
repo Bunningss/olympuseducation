@@ -1,3 +1,4 @@
+import { requestUrl } from "@/utils/static";
 import { UserProps } from "@/utils/types";
 import { useEffect, useState } from "react";
 
@@ -13,7 +14,7 @@ const useValidate = () => {
 
   useEffect(() => {
     const isVerified = async () => {
-      const res = await fetch("api/validate", {
+      const res = await fetch(requestUrl + "validate", {
         method: "GET",
       });
       const user = await res.json();

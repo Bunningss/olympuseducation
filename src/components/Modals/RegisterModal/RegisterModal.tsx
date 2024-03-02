@@ -4,6 +4,7 @@ import Modal from "../Modal";
 import Input from "@/components/Input/Input";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
+import { requestUrl } from "@/utils/static";
 
 const RegisterModal: React.FC = () => {
   const registerModal = useRegisterModal();
@@ -85,7 +86,7 @@ const RegisterModal: React.FC = () => {
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
-      const res = await fetch("api/auth/register", {
+      const res = await fetch(requestUrl + "auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

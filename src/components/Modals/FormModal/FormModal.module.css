@@ -1,0 +1,10 @@
+.formModalWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalForm {
+  max-width: 40em;
+  width: 100%;
+}

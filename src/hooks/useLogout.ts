@@ -1,6 +1,8 @@
+import { requestUrl } from "@/utils/static";
+
 const useLogout = () => {
   const isloggedOut = async () => {
-    const res = await fetch("api/logout", {
+    const res = await fetch(requestUrl + "logout", {
       method: "GET",
     });
 
