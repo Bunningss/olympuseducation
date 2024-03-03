@@ -16,15 +16,15 @@ import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
 import useLogout from "@/hooks/useLogout";
-import useValidate from "@/hooks/useValidate";
+import { useValidate } from "@/hooks/useValidate";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const { isValid, isAdmin } = useValidate();
   const { isloggedOut } = useLogout();
+  const { isValid, isAdmin } = useValidate();
 
   const navDropdown = (
     <div>

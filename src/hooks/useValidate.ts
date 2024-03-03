@@ -1,43 +1,30 @@
 import { requestUrl } from "@/utils/static";
-import { UserProps } from "@/utils/types";
 import { useEffect, useState } from "react";
 
-const useValidate = () => {
-  const [isAdmin, setIsAdmin] = useState<boolean>(false);
-  const [isValid, setIsValid] = useState<boolean>(false);
-  const [user, setUser] = useState<UserProps>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: "",
-    role: "",
-  });
+export const useValidate = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState({});
+  const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
-    const isVerified = async () => {
+    const getData = async () => {
       try {
-        const res = await fetch(requestUrl + "validate", {
-          method: "GET",
-        });
-        const user = await res.json();
-
-        if (user.isValid) {
-          setIsValid(user.isValid);
-          if (user.role === "SUPER ADMIN" || "ADMIN" || "LEVEL 2") {
+        const res = await fetch(requestUrl + "validate");
+        const data = await res.json();
+        if (res.status === 200) {
+          if (data.user.role === "SUPER ADMIN" || "ADMIN" || "LEVEL 2") {
             setIsAdmin(true);
           }
-          setUser(user.user);
-        } else {
-          return null;
+          setUser(data.user);
+          setIsValid(true);
         }
       } catch (err) {
-        console.log(err);
+        return err;
       }
     };
-    isVerified();
-  }, [isValid]);
 
-  return { isValid, isAdmin, user };
+    getData();
+  }, []);
+
+  return { isAdmin, isValid, user };
 };
-
-export default useValidate;

@@ -1,7 +1,6 @@
 "use client";
-import useValidate from "@/hooks/useValidate";
-import { useRouter } from "next/navigation";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { useValidate } from "@/hooks/useValidate";
+import { FC, ReactNode } from "react";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -9,20 +8,9 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   const { isAdmin } = useValidate();
-  const { push } = useRouter();
-  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!isAdmin) {
-      push("/");
-      return;
-    } else {
-      setIsSuccess(isAdmin);
-    }
-  }, [isAdmin, push]);
-
-  if (!isSuccess) {
-    return <p>Loading...</p>;
+  if (!isAdmin) {
+    return <span>Loading...</span>;
   }
 
   return <main>{children}</main>;
