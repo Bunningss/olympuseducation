@@ -3,6 +3,7 @@ import { UserProps } from "@/utils/types";
 import { useEffect, useState } from "react";
 
 const useValidate = () => {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(false);
   const [user, setUser] = useState<UserProps>({
     firstName: "",
@@ -14,22 +15,29 @@ const useValidate = () => {
 
   useEffect(() => {
     const isVerified = async () => {
-      const res = await fetch(requestUrl + "validate", {
-        method: "GET",
-      });
-      const user = await res.json();
+      try {
+        const res = await fetch(requestUrl + "validate", {
+          method: "GET",
+        });
+        const user = await res.json();
 
-      if (user.isValid) {
-        setIsValid(user.isValid);
-        setUser(user.user);
-      } else {
-        return null;
+        if (user.isValid) {
+          setIsValid(user.isValid);
+          if (user.role === "SUPER ADMIN" || "ADMIN" || "LEVEL 2") {
+            setIsAdmin(true);
+          }
+          setUser(user.user);
+        } else {
+          return null;
+        }
+      } catch (err) {
+        console.log(err);
       }
     };
     isVerified();
   }, [isValid]);
 
-  return { isValid, user };
+  return { isValid, isAdmin, user };
 };
 
 export default useValidate;

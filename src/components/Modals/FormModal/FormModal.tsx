@@ -9,12 +9,12 @@ interface FormModalProps {
   action: (e: FormEvent) => void;
 }
 
-const FormModal: FC<FormModalProps> = ({ body, formTitle }) => {
+const FormModal: FC<FormModalProps> = ({ action, body, formTitle }) => {
   return (
     <div className={styles.formModalWrapper}>
       <Headers secondary={formTitle} />
 
-      <form action="" className={styles.modalForm}>
+      <form onSubmit={action} className={styles.modalForm}>
         {body}
         <Button label="submit" />
       </form>

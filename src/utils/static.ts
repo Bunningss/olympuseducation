@@ -5,7 +5,7 @@ import linkedin from "../../public/images/icons/linkedin.png";
 import whatsapp from "../../public/images/icons/whatsapp.png";
 import { SelectDataProps, SocialItemProps } from "./types";
 
-export const requestUrl = "http://localhost:3000/api/";
+export const requestUrl = "https://olympuseducation.vercel.app/api/";
 
 export const socialItems: SocialItemProps[] = [
   {

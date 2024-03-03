@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const { user } = useValidate();
+  const { isValid, isAdmin } = useValidate();
   const { isloggedOut } = useLogout();
 
   const navDropdown = (
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      {!user.firstName && (
+      {!isValid && (
         <>
           <DropdownItem label="login" action={loginModal.onOpen} icon={login} />
           <DropdownItem
@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
         </>
       )}
 
-      {user?.role === "SUPER ADMIN" && "ADMIN" && "LEVEL 2" && (
+      {isAdmin && (
         <DropdownItem
           label="dashboard"
           action={() => router.push("/dashboard")}
@@ -50,11 +50,12 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {user.firstName && (
+      {isValid && (
         <DropdownItem label="logout" icon={logout} action={isloggedOut} />
       )}
     </div>
   );
+
   return (
     <div className={styles.navbar}>
       <Container>
