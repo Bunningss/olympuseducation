@@ -3,12 +3,13 @@ import { requestUrl } from "@/utils/static";
 const useLogout = () => {
   const isloggedOut = async () => {
     try {
-      const res = await fetch(requestUrl + "logout", {
+      const res = await fetch(requestUrl + "auth/logout", {
         method: "GET",
       });
 
       if (res.status === 200) {
-        window.location.reload();
+        // window.location.reload();
+        console.log(await res.json());
       }
     } catch (err) {
       console.log(err);
