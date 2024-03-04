@@ -8,16 +8,8 @@ const useLogout = () => {
       });
 
       if (res.status === 200) {
-        console.log("logged out");
+        window.location.reload();
       }
-
-      console.log(await res.json());
-
-      // if (res.status !== 200) {
-      //   console.log("object");
-      // } else {
-      //   window.location.reload();
-      // }
     } catch (err) {
       console.log(err);
     }

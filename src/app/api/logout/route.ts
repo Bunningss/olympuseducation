@@ -5,10 +5,9 @@ export async function GET() {
   try {
     const serialized = cookie.serialize("access_token", "no_cookie_for_you.", {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
-      maxAge: 1800, // 30 minutes
+      maxAge: -1, // instant expire
     });
 
     return NextResponse.json(JSON.stringify({ message: "Logged out." }), {
