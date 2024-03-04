@@ -1,8 +1,13 @@
+import { apiResponse } from "@/utils/apiRespose";
 import cookie from "cookie";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
+    const token = req.cookies.get("access_token");
+
+    if (!token) return apiResponse("User logged out.", 200);
+
     const serialized = cookie.serialize("access_token", "", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
