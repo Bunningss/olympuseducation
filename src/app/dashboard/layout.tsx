@@ -1,4 +1,5 @@
 "use client";
+import BatchModal from "@/components/Modals/BatchModal/BatchModal";
 import { useValidate } from "@/hooks/useValidate";
 import { FC, ReactNode } from "react";
 
@@ -13,7 +14,12 @@ const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
     return <span>Loading...</span>;
   }
 
-  return <main>{children}</main>;
+  return (
+    <main>
+      <BatchModal />
+      {children}
+    </main>
+  );
 };
 
 export default DashboardLayout;

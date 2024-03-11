@@ -5,19 +5,24 @@ interface CustomJwtPayload extends jwt.JwtPayload {
   role: string;
 }
 
-export const verifyToken = (req: NextRequest) => {
+export const verifyAdmin = (req: NextRequest) => {
   try {
     const token = req.cookies.get("access_token");
 
     if (!token) {
-      return null;
+      return false;
     }
+
     const { role } = jwt.verify(
       token.value,
       process.env.JWT_SEC || ""
     ) as CustomJwtPayload;
 
-    return role;
+    if (role === "SUPER ADMIN" && "ADMIN" && "LEVEL 2") {
+      return true;
+    } else {
+      return false;
+    }
   } catch (err) {
     console.log(err);
   }

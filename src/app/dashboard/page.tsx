@@ -4,16 +4,22 @@ import styles from "./Dashboard.module.css";
 import Container from "@/components/Container/Container";
 import { FC } from "react";
 import { useRouter } from "next/navigation";
+import useBatchModal from "@/hooks/zustand/useBatchModal";
 
 const Dashboard: FC = () => {
   const { push } = useRouter();
+  const batchModal = useBatchModal();
   return (
     <div>
       <Container>
         <div className={styles.mainContent}>
           <div className={styles.dashboardFormWrapper}>
             <div className={styles.buttonWrapper}>
-              <Button label="add batch number" outline />
+              <Button
+                label="add batch number"
+                outline
+                onClick={batchModal.onOpen}
+              />
               <Button
                 label="view student data"
                 onClick={() => push("dashboard/student")}

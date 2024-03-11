@@ -2,13 +2,11 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import styles from "./student.module.css";
 import { SelectDataProps } from "@/utils/types";
-import { courseData } from "@/utils/static";
+import { courseData, requestUrl } from "@/utils/static";
 import Input from "@/components/Input/Input";
 import FormModal from "@/components/Modals/FormModal/FormModal";
 
-interface StudentProps {}
-
-const Student: FC<StudentProps> = () => {
+const Student: FC = () => {
   const [values, setvalues] = useState({
     firstName: "",
     lastName: "",
@@ -23,7 +21,7 @@ const Student: FC<StudentProps> = () => {
     emergencyContactRelation: "",
     expectedBandScore: 1,
   });
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
@@ -32,8 +30,8 @@ const Student: FC<StudentProps> = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      setLoading(true);
-      const res = await fetch("api/student", {
+      setIsLoading(true);
+      const res = await fetch(requestUrl + "student", {
         method: "POST",
         headers: {
           "Context-Type": "application/json",
@@ -45,32 +43,11 @@ const Student: FC<StudentProps> = () => {
       }
     } catch (err) {
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  const ieltsBatchData: SelectDataProps[] = [
-    {
-      label: "I-01",
-      value: "I-01",
-    },
-    {
-      label: "I-02",
-      value: "I-02",
-    },
-    {
-      label: "I-03",
-      value: "I-03",
-    },
-    {
-      label: "I-04",
-      value: "I-04",
-    },
-    {
-      label: "I-05",
-      value: "I-05",
-    },
-  ];
+  const ieltsBatchData: any = [];
 
   const sscBatchData: SelectDataProps[] = [
     {
