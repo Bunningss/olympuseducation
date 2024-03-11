@@ -53,8 +53,17 @@ export async function GET() {
   try {
     await connectDb();
 
-    const batches = await Batch.find();
-    return apiResponse(batches, 200);
+    const data = await Batch.find();
+
+    let courseList: string[] = [];
+    let batches: any = {};
+
+    data.forEach((batch) => {
+      courseList.push(batch.courseName);
+      batches[batch.courseName] = batch.batches[0].batchNumbers;
+    });
+
+    return apiResponse({ courseList, batches }, 200);
   } catch (err) {
     console.log(err);
     return apiResponse("An error occured.", 400);

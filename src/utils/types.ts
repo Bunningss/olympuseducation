@@ -20,11 +20,11 @@ export interface UserModelProps {
   email: string;
   phone: number;
   password: string;
-  address?: string; // Optional
-  role?: "LEVEL 2" | "USER" | "STUDENT"; // Optional with default
+  address?: string;
+  role?: "LEVEL 2" | "USER" | "STUDENT";
   picture: String;
-  createdAt?: Date; // From timestamps
-  updatedAt?: Date; // From timestamps
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface StudentModelProps {
@@ -36,22 +36,28 @@ export interface StudentModelProps {
   phone: number;
   amount: number;
   referredBy?: string;
-  emergencyContactName: string; // Optional
-  emergencyContactNumber: number; // Optional
-  emergencyContactRelation: string; // Optional
+  emergencyContactName: string;
+  emergencyContactNumber: number;
+  emergencyContactRelation: string;
   startDate?: number;
   expectedBandScore: number;
-  bandScoreAchieved?: number; // Optional
-  nidNumber?: number; // Optional
+  bandScoreAchieved?: number;
+  nidNumber?: number;
   passportNumber?: string;
-  address?: string; // Optional
-  picture?: string; // Optional
-  role?: "STUDENT"; // Optional with default
-  createdAt?: Date; // From timestamps
-  updatedAt?: Date; // From timestamps
+  address?: string;
+  picture?: string;
+  role?: "STUDENT";
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-export interface SelectDataProps {
-  label: string;
-  value: string;
+export interface BatchProps {
+  courseList: string[];
+  batches: {
+    IELTS: [];
+    SPOKEN: [];
+    BASIC: [];
+    HSC: [];
+    SSC: [];
+  };
 }

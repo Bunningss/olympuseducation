@@ -1,18 +1,19 @@
 "use client";
-import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import styles from "./student.module.css";
-import { SelectDataProps } from "@/utils/types";
-import { courseData, requestUrl } from "@/utils/static";
+import { BatchProps, StudentModelProps } from "@/utils/types";
+import { requestUrl } from "@/utils/static";
 import Input from "@/components/Input/Input";
 import FormModal from "@/components/Modals/FormModal/FormModal";
+import { useGetData } from "@/hooks/useGetData";
 
 const Student: FC = () => {
-  const [values, setvalues] = useState({
+  const [values, setvalues] = useState<StudentModelProps>({
     firstName: "",
     lastName: "",
     email: "",
     address: "",
-    course: "",
+    course: "IELTS",
     batchNumber: "",
     phone: 0,
     amount: 0,
@@ -22,6 +23,17 @@ const Student: FC = () => {
     expectedBandScore: 1,
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [data, setData] = useState<BatchProps>();
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch(requestUrl + "batch", {
+        method: "GET",
+      });
+      setData(await res.json());
+    };
+    getData();
+  }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
@@ -47,44 +59,12 @@ const Student: FC = () => {
     }
   };
 
-  const ieltsBatchData: any = [];
-
-  const sscBatchData: SelectDataProps[] = [
-    {
-      label: "SSC-01",
-      value: "SSC-01",
-    },
-    {
-      label: "SSC-02",
-      value: "SSC-02",
-    },
-    {
-      label: "SSC-03",
-      value: "SSC-03",
-    },
-  ];
-
-  const referData: SelectDataProps[] = [
-    {
-      label: "Ashfaq Alif",
-      value: "Ashfaq Alif",
-    },
-    {
-      label: "Sumon Albi",
-      value: "Sumon Albi",
-    },
-    {
-      label: "Shemanto",
-      value: "Shemanto",
-    },
-  ];
-
   const formBody = (
     <>
       <div className={styles.inputGroup}>
         <Input
           typeSelect
-          selectData={courseData}
+          selectData={data?.courseList}
           handleChange={handleChange}
           name="course"
           placeholder="Course"
@@ -92,13 +72,7 @@ const Student: FC = () => {
         />
         <Input
           typeSelect
-          selectData={
-            values.course === "IELTS"
-              ? ieltsBatchData
-              : values.course === "SSC"
-              ? sscBatchData
-              : []
-          }
+          selectData={data?.batches[values.course]}
           handleChange={handleChange}
           name="batchNumber"
           placeholder="Batch Number"
@@ -158,7 +132,7 @@ const Student: FC = () => {
         placeholder="Referred By"
         label="Referred By"
         typeSelect
-        selectData={referData}
+        selectData={[]}
         errorMessage=""
         handleChange={handleChange}
       />

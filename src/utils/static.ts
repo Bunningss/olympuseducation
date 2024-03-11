@@ -3,7 +3,7 @@ import instagram from "../../public/images/icons/instagram.png";
 import youtube from "../../public/images/icons/youtube.png";
 import linkedin from "../../public/images/icons/linkedin.png";
 import whatsapp from "../../public/images/icons/whatsapp.png";
-import { SelectDataProps, SocialItemProps } from "./types";
+import { SocialItemProps } from "./types";
 
 export const requestUrl = "https://olympuseducation.vercel.app/api/";
 // export const requestUrl = "http://localhost:3000/api/";

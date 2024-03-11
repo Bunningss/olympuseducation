@@ -1,6 +1,5 @@
 import { ChangeEventHandler } from "react";
 import styles from "./Input.module.css";
-import { SelectDataProps } from "@/utils/types";
 
 interface InputProps {
   placeholder?: string;
@@ -13,7 +12,7 @@ interface InputProps {
   minimumValue?: number;
   handleChange: ChangeEventHandler;
   typeSelect?: boolean;
-  selectData?: SelectDataProps[];
+  selectData?: string[];
 }
 
 const Input: React.FC<InputProps> = ({
@@ -61,10 +60,9 @@ const Input: React.FC<InputProps> = ({
             className={styles.inputField}
             onChange={handleChange}
           >
-            <option value="">Select</option>
             {selectData?.map((data, indx) => (
-              <option value={data.value} key={indx}>
-                {data.label}
+              <option value={data} key={indx}>
+                {data}
               </option>
             ))}
           </select>
