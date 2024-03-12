@@ -2,10 +2,12 @@ import { ChangeEvent, FC, useState } from "react";
 import Modal from "../Modal";
 import useBatchModal from "@/hooks/zustand/useBatchModal";
 import Input from "@/components/Input/Input";
-import { courseData, requestUrl } from "@/utils/static";
+import { requestUrl } from "@/utils/static";
+import { useGetData } from "@/hooks/useGetData";
 
 const BatchModal: FC = () => {
   const batchModal = useBatchModal();
+  const { data } = useGetData("batch");
   const [values, setValues] = useState({
     batchNumber: "",
     courseName: "",
@@ -22,7 +24,7 @@ const BatchModal: FC = () => {
         body: JSON.stringify(values),
       });
       if (res.status === 200) {
-        // batchModal.onClose();
+        batchModal.onClose();
       }
     } catch (err) {
       console.log(err);
@@ -33,7 +35,7 @@ const BatchModal: FC = () => {
     <div>
       <Input
         typeSelect
-        selectData={courseData}
+        selectData={data?.courseList}
         name="courseName"
         label="Course Name"
         handleChange={handleChange}

@@ -5,8 +5,8 @@ import linkedin from "../../public/images/icons/linkedin.png";
 import whatsapp from "../../public/images/icons/whatsapp.png";
 import { SocialItemProps } from "./types";
 
-export const requestUrl = "https://olympuseducation.vercel.app/api/";
-// export const requestUrl = "http://localhost:3000/api/";
+// export const requestUrl = "https://olympuseducation.vercel.app/api/";
+export const requestUrl = "http://localhost:3000/api/";
 
 export const socialItems: SocialItemProps[] = [
   {
@@ -33,28 +33,5 @@ export const socialItems: SocialItemProps[] = [
     label: "Whatsapp",
     icon: whatsapp,
     href: "",
-  },
-];
-
-export const courseData = [
-  {
-    label: "IELTS",
-    value: "IELTS",
-  },
-  {
-    label: "SPOKEN",
-    value: "SPOKEN",
-  },
-  {
-    label: "BASIC",
-    value: "BASIC",
-  },
-  {
-    label: "HSC",
-    value: "HSC",
-  },
-  {
-    label: "SSC",
-    value: "SSC",
   },
 ];
