@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
     ).toString(cryptoJs.enc.Utf8);
 
     if (decryptedPass === password) {
-      const { firstName, lastName, email, address, role } = user;
+      const { firstName, lastName, email, address, role, _id } = user;
 
       const accessToken = jwt.sign(
-        { firstName, lastName, email, address, role },
+        { firstName, lastName, email, address, role, _id },
         process.env.JWT_SEC || "",
         { expiresIn: 1800 }
       );

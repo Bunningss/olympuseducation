@@ -61,3 +61,8 @@ export interface BatchProps {
     SSC: [];
   };
 }
+
+export interface CustomTokenVerifyProps {
+  admin: boolean;
+  name: string;
+}

@@ -13,13 +13,13 @@ export const verifyAdmin = (req: NextRequest) => {
       return false;
     }
 
-    const { role } = jwt.verify(
+    const { role, firstName, lastName } = jwt.verify(
       token.value,
       process.env.JWT_SEC || ""
     ) as CustomJwtPayload;
 
     if (role === "SUPER ADMIN" && "ADMIN" && "LEVEL 2") {
-      return true;
+      return { admin: true, name: firstName + lastName };
     } else {
       return false;
     }

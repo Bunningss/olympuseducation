@@ -3,11 +3,12 @@ import { apiResponse } from "@/utils/apiRespose";
 import connectDb from "@/utils/db/connect";
 import { NextRequest } from "next/server";
 import { verifyAdmin } from "../verifyToken";
+import { CustomTokenVerifyProps } from "@/utils/types";
 
 export async function PUT(req: NextRequest) {
   try {
     await connectDb();
-    const admin = verifyAdmin(req);
+    const { admin } = verifyAdmin(req) as CustomTokenVerifyProps;
 
     if (!admin) return apiResponse("Unauthorized!", 400);
 
@@ -53,7 +54,8 @@ export async function GET(req: NextRequest) {
   try {
     await connectDb();
 
-    const admin = verifyAdmin(req);
+    const { admin } = verifyAdmin(req) as CustomTokenVerifyProps;
+
     if (!admin) return apiResponse("Unauthorized.", 401);
 
     const data = await Batch.find();

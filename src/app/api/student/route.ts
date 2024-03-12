@@ -4,12 +4,13 @@ import { apiResponse } from "@/utils/apiRespose";
 import connectDb from "@/utils/db/connect";
 import { Student } from "@/models/Student";
 import { Batch } from "@/models/Batch";
+import { CustomTokenVerifyProps } from "@/utils/types";
 
 export async function POST(req: NextRequest) {
   try {
     await connectDb();
     const data = await req.json();
-    const admin = verifyAdmin(req);
+    const { admin } = verifyAdmin(req) as CustomTokenVerifyProps;
 
     if (!admin) return apiResponse("Unauthorized!", 400);
 
