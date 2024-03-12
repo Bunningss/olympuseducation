@@ -49,9 +49,12 @@ export async function PUT(req: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
     await connectDb();
+
+    const admin = verifyAdmin(req);
+    if (!admin) return apiResponse("Unauthorized.", 401);
 
     const data = await Batch.find();
 

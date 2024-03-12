@@ -21,13 +21,22 @@ const Dashboard: FC = () => {
                 onClick={batchModal.onOpen}
               />
               <Button
-                label="view student data"
+                label="add student"
+                outline
                 onClick={() => push("dashboard/student")}
               />
             </div>
             <div className={styles.buttonWrapper}>
-              <Button label="add employee data" />
-              <Button label="add expense data" outline />
+              <Button label="add employee" outline />
+              <Button label="add expense" outline />
+            </div>
+            <div className={styles.buttonWrapper}>
+              <Button label="view employees" />
+              <Button label="view expense" />
+            </div>
+            <div className={styles.buttonWrapper}>
+              <Button label="view students" />
+              <Button label="view batches" />
             </div>
           </div>
         </div>
