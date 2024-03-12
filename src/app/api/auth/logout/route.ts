@@ -15,10 +15,13 @@ export async function GET(req: NextRequest) {
       maxAge: -1, // instant
     });
 
-    return NextResponse.json(JSON.stringify({ message: "Logged out" }), {
-      status: 200,
-      headers: { "Set-Cookie": serialized },
-    });
+    return NextResponse.json(
+      JSON.stringify({ "firstName, lastName, email, address, role": "null" }),
+      {
+        status: 200,
+        headers: { "Set-Cookie": serialized },
+      }
+    );
   } catch (err) {
     return apiResponse(err, 400);
   }
