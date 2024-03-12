@@ -36,7 +36,7 @@ export const socialItems: SocialItemProps[] = [
   },
 ];
 
-export const courseData: SelectDataProps[] = [
+export const courseData = [
   {
     label: "IELTS",
     value: "IELTS",

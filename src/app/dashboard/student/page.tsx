@@ -1,7 +1,7 @@
 "use client";
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import styles from "./student.module.css";
-import { BatchProps, StudentModelProps } from "@/utils/types";
+import { StudentModelProps } from "@/utils/types";
 import { requestUrl } from "@/utils/static";
 import Input from "@/components/Input/Input";
 import FormModal from "@/components/Modals/FormModal/FormModal";
@@ -22,18 +22,7 @@ const Student: FC = () => {
     emergencyContactRelation: "",
     expectedBandScore: 1,
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [data, setData] = useState<BatchProps>();
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await fetch(requestUrl + "batch", {
-        method: "GET",
-      });
-      setData(await res.json());
-    };
-    getData();
-  }, []);
+  const { data } = useGetData("batch");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setvalues({ ...values, [e.target.name]: e.target.value });
@@ -42,7 +31,6 @@ const Student: FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      setIsLoading(true);
       const res = await fetch(requestUrl + "student", {
         method: "POST",
         headers: {
@@ -54,8 +42,7 @@ const Student: FC = () => {
         console.log("Success.");
       }
     } catch (err) {
-    } finally {
-      setIsLoading(false);
+      console.log(err);
     }
   };
 

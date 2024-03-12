@@ -1,19 +1,27 @@
 import { requestUrl } from "@/utils/static";
 import { useEffect, useState } from "react";
 
-export const useGetData = () => {
+export const useGetData = (url: string) => {
   const [data, setData] = useState<any>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(requestUrl + "batch", {
-        method: "GET",
-      });
-      setData(await res.json());
+      try {
+        setIsLoading(true);
+        const res = await fetch(requestUrl + url, {
+          method: "GET",
+        });
+        setData(await res.json());
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(true);
+      }
     };
 
     getData();
-  }, []);
+  }, [url]);
 
-  return { data };
+  return { data, isLoading };
 };
