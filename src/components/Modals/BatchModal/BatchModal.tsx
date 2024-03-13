@@ -58,7 +58,8 @@ const BatchModal: FC = () => {
         isOpen={batchModal.isOpen}
         onClose={batchModal.onClose}
         onSubmit={handleSubmit}
-        modalTitle="Add Batch Number"
+        modalTitle="Batch Number"
+        tagline="add new batch number."
         body={modalBody}
         actionLabel="submit"
       />

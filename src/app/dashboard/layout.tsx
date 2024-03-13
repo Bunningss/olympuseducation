@@ -1,5 +1,6 @@
 "use client";
 import BatchModal from "@/components/Modals/BatchModal/BatchModal";
+import ExpenseModal from "@/components/Modals/ExpenseModal/ExpenseModal";
 import { useValidate } from "@/hooks/useValidate";
 import { FC, ReactNode } from "react";
 
@@ -17,6 +18,7 @@ const DashboardLayout: FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <main>
       <BatchModal />
+      <ExpenseModal />
       {children}
     </main>
   );
