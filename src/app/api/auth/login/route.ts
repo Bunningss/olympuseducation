@@ -23,8 +23,10 @@ export async function POST(req: NextRequest) {
     if (decryptedPass === password) {
       const { firstName, lastName, email, address, role, _id } = user;
 
+      const admin = user.role !== "STUDENT" || "USER" ? true : false;
+
       const accessToken = jwt.sign(
-        { firstName, lastName, email, address, role, _id },
+        { firstName, lastName, email, address, role, _id, admin },
         process.env.JWT_SEC || "",
         { expiresIn: 1800 }
       );
@@ -38,7 +40,15 @@ export async function POST(req: NextRequest) {
       });
 
       return NextResponse.json(
-        JSON.stringify({ firstName, lastName, email, address, role }),
+        JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          address,
+          role,
+          _id,
+          admin,
+        }),
         {
           status: 200,
           headers: { "Set-Cookie": serialized },

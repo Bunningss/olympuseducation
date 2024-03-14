@@ -4,6 +4,7 @@ import { ChangeEvent, useContext, useState } from "react";
 import Input from "@/components/Input/Input";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import { requestUrl } from "@/utils/static";
+import { setCookie } from "@/utils/functions";
 
 const LoginModal: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +33,7 @@ const LoginModal: React.FC = () => {
       if (res.status !== 200) {
         return null;
       } else {
+        setCookie("user", await res.json());
         loginModal.onClose();
         window.location.reload();
       }

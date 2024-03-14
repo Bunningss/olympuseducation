@@ -15,23 +15,21 @@ import { useRouter } from "next/navigation";
 import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
-import useLogout from "@/hooks/useLogout";
-import { useValidate } from "@/hooks/useValidate";
+import { getCookie } from "@/utils/functions";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const { isloggedOut } = useLogout();
-  const { isValid, isAdmin } = useValidate();
+  const user = getCookie("user");
 
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      {!isValid && (
+      {!user?.email && (
         <>
           <DropdownItem label="login" action={loginModal.onOpen} icon={login} />
           <DropdownItem
@@ -42,7 +40,7 @@ const Navbar: React.FC = () => {
         </>
       )}
 
-      {isAdmin && (
+      {user?.admin && (
         <DropdownItem
           label="dashboard"
           action={() => router.push("/dashboard")}
@@ -50,8 +48,8 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {isValid && (
-        <DropdownItem label="logout" icon={logout} action={isloggedOut} />
+      {user?.email && (
+        <DropdownItem label="logout" icon={logout} action={() => {}} />
       )}
     </div>
   );
