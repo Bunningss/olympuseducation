@@ -1,7 +1,6 @@
 import Link from "next/link";
 import BackgroundText from "../BackgroundText/BackgroundText";
 import Container from "../Container/Container";
-import Title from "../Headers/Headers";
 import styles from "./About.module.css";
 import { roboto } from "@/fonts/fonts";
 import Section from "../Section/Section";

@@ -43,6 +43,7 @@ const LoginModal: React.FC = () => {
       setIsLoading(false);
     }
   };
+
   const bodyContent: JSX.Element = (
     <div>
       <Input

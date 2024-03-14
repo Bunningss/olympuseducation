@@ -7,7 +7,7 @@ import { requestUrl } from "@/utils/static";
 
 const ExpenseModal = () => {
   const expenseModal = useExpenseModal();
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [values, setValues] = useState({});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +16,7 @@ const ExpenseModal = () => {
 
   const handleSubmit = async () => {
     try {
+      setIsLoading(true);
       const res = await fetch(requestUrl + "expense", {
         method: "POST",
         body: JSON.stringify(values),
@@ -29,6 +30,8 @@ const ExpenseModal = () => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -77,6 +80,7 @@ const ExpenseModal = () => {
 
   return (
     <Modal
+      disabled={isLoading}
       body={bodyContent}
       isOpen={expenseModal.isOpen}
       onClose={expenseModal.onClose}

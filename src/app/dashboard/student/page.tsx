@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 import styles from "./student.module.css";
 import { StudentModelProps } from "@/utils/types";
 import { requestUrl } from "@/utils/static";

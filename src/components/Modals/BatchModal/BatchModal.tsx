@@ -12,6 +12,7 @@ const BatchModal: FC = () => {
     batchNumber: "",
     courseName: "",
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -19,6 +20,7 @@ const BatchModal: FC = () => {
 
   const handleSubmit = async () => {
     try {
+      setIsLoading(true);
       const res = await fetch(requestUrl + "batch", {
         method: "PUT",
         body: JSON.stringify(values),
@@ -28,6 +30,8 @@ const BatchModal: FC = () => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -55,6 +59,7 @@ const BatchModal: FC = () => {
   return (
     <div>
       <Modal
+        disabled={isLoading}
         isOpen={batchModal.isOpen}
         onClose={batchModal.onClose}
         onSubmit={handleSubmit}

@@ -25,8 +25,6 @@ const Navbar: React.FC = () => {
   const registerModal = useRegisterModal();
   const { cookie } = useGetCookies();
 
-  console.log(cookie);
-
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
