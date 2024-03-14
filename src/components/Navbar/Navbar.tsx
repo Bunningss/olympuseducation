@@ -16,20 +16,23 @@ import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
 import { getCookie } from "@/utils/functions";
+import { useGetCookies } from "@/hooks/useGetCookies";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const navDropdownState = useNavDropdown();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  const user = getCookie("user");
+  const { cookie } = useGetCookies();
+
+  console.log(cookie);
 
   const navDropdown = (
     <div>
       <DropdownItem label="home" icon={home} action={() => router.push("/")} />
       <DropdownItem label="our courses" icon={course} />
 
-      {!user?.email && (
+      {!cookie?.email && (
         <>
           <DropdownItem label="login" action={loginModal.onOpen} icon={login} />
           <DropdownItem
@@ -40,7 +43,7 @@ const Navbar: React.FC = () => {
         </>
       )}
 
-      {user?.admin && (
+      {cookie?.admin && (
         <DropdownItem
           label="dashboard"
           action={() => router.push("/dashboard")}
@@ -48,7 +51,7 @@ const Navbar: React.FC = () => {
         />
       )}
 
-      {user?.email && (
+      {cookie?.email && (
         <DropdownItem label="logout" icon={logout} action={() => {}} />
       )}
     </div>
