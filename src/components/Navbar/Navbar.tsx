@@ -15,7 +15,6 @@ import { useRouter } from "next/navigation";
 import useNavDropdown from "@/hooks/zustand/useNavDropdown";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import useRegisterModal from "@/hooks/zustand/useRegisterModal";
-import { getCookie } from "@/utils/functions";
 import { useGetCookies } from "@/hooks/useGetCookies";
 
 const Navbar: React.FC = () => {
