@@ -73,3 +73,11 @@
     width: 95%;
   }
 }
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .modalWrapper {
+    overflow: scroll;
+    height: 90vh;
+    margin-bottom: 1em;
+  }
+}

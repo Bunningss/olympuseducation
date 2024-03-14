@@ -51,3 +51,14 @@
     line-height: 1em;
   }
 }
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .backgroundText {
+    font-size: 8em;
+  }
+
+  .backgroundTextSecondary {
+    line-height: 1.5em;
+    font-size: calc(var(--font-stroked) / 1.8);
+  }
+}

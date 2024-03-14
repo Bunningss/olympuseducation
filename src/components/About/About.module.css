@@ -19,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   gap: calc(var(--item-gap) / 1.2);
-  z-index: 5;
+  /* z-index: 5; */
 }
 
 .aboutLink {
@@ -54,6 +54,12 @@
   }
 
   .aboutSection {
+    gap: calc(var(--item-gap) / 5);
+  }
+}
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .aboutContent {
     gap: calc(var(--item-gap) / 5);
   }
 }

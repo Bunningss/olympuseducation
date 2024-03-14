@@ -13,3 +13,9 @@
     font-size: calc(var(--font-regular) * 1.1);
   }
 }
+
+@media screen and (orientation: landscape) {
+  .text {
+    font-size: calc(var(--font-regular) * 1.3);
+  }
+}

@@ -109,3 +109,14 @@
     font-size: calc(8em / 3);
   }
 }
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .heroTitle {
+    font-size: calc(8em / 2);
+    line-height: normal;
+  }
+
+  .heroSocialContainer {
+    display: none;
+  }
+}

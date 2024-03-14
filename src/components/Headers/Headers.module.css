@@ -70,3 +70,13 @@
     font-size: calc(var(--font-regular) / 1.25);
   }
 }
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .headerSecondary {
+    font-size: calc(var(--heading-secondary) / 1.2);
+  }
+
+  .headerPrimary {
+    font-size: calc(var(--heading-primary) / 1.3);
+  }
+}
