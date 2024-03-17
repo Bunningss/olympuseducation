@@ -5,9 +5,11 @@ import Input from "@/components/Input/Input";
 import useLoginModal from "@/hooks/zustand/useLoginModal";
 import { requestUrl } from "@/utils/static";
 import { setCookie } from "@/utils/functions";
+import useAlert from "@/hooks/zustand/useAlert";
 
 const LoginModal: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const alert = useAlert();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -31,6 +33,7 @@ const LoginModal: React.FC = () => {
       });
 
       if (res.status !== 200) {
+        alert.onAlert(await res.json());
         return null;
       } else {
         setCookie("user", await res.json());

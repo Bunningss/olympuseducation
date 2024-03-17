@@ -16,6 +16,10 @@ export async function POST(req: NextRequest) {
 
     const newStudent = new Student(data);
 
+    //Verify duplicate email
+    const existingStudent = await Student.findOne({ email: newStudent.email });
+    if (existingStudent) return apiResponse("Email already exists.", 400);
+
     // Verify if batch exist
     const getBatch = await Batch.findOne({ courseName: newStudent.course });
     if (!getBatch) return apiResponse("Course does not exist.", 400);

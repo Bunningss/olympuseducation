@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar/Navbar";
 import RegisterModal from "@/components/Modals/RegisterModal/RegisterModal";
 import LoginModal from "@/components/Modals/LoginModal/LoginModal";
+import Alert from "@/components/Alert/Alert";
 
 export const metadata: Metadata = {
   title: "Olympus",
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <Alert />
         <Navbar />
         <RegisterModal />
         <LoginModal />

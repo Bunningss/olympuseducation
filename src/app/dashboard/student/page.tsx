@@ -6,6 +6,8 @@ import { requestUrl } from "@/utils/static";
 import Input from "@/components/Input/Input";
 import FormModal from "@/components/Modals/FormModal/FormModal";
 import { useGetData } from "@/hooks/useGetData";
+import useAlert from "@/hooks/zustand/useAlert";
+import { useRouter } from "next/navigation";
 
 const Student: FC = () => {
   const [values, setvalues] = useState<StudentModelProps>({
@@ -14,7 +16,7 @@ const Student: FC = () => {
     email: "",
     address: "",
     course: "IELTS",
-    batchNumber: "",
+    batchNumber: "I-1",
     phone: 0,
     amount: 0,
     emergencyContactName: "",
@@ -22,6 +24,8 @@ const Student: FC = () => {
     emergencyContactRelation: "",
     expectedBandScore: 1,
   });
+  const alert = useAlert();
+  const { push } = useRouter();
   const { data } = useGetData("batch");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,9 +42,11 @@ const Student: FC = () => {
         },
         body: JSON.stringify(values),
       });
-      if (res.status === 200) {
-        console.log("Success.");
+      if (res.status !== 200) {
+        alert.onAlert(await res.json());
+        return;
       }
+      push("/dashboard");
     } catch (err) {
       console.log(err);
     }

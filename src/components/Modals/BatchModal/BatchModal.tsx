@@ -4,6 +4,7 @@ import useBatchModal from "@/hooks/zustand/useBatchModal";
 import Input from "@/components/Input/Input";
 import { requestUrl } from "@/utils/static";
 import { useGetData } from "@/hooks/useGetData";
+import useAlert from "@/hooks/zustand/useAlert";
 
 const BatchModal: FC = () => {
   const batchModal = useBatchModal();
@@ -13,6 +14,7 @@ const BatchModal: FC = () => {
     courseName: "IELTS",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const alert = useAlert();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -25,9 +27,11 @@ const BatchModal: FC = () => {
         method: "PUT",
         body: JSON.stringify(values),
       });
-      if (res.status === 200) {
-        batchModal.onClose();
+      if (res.status !== 200) {
+        alert.onAlert(await res.json());
+        return;
       }
+      batchModal.onClose();
     } catch (err) {
       console.log(err);
     } finally {

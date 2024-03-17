@@ -4,11 +4,13 @@ import Input from "@/components/Input/Input";
 import { nunito } from "@/fonts/fonts";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { requestUrl } from "@/utils/static";
+import useAlert from "@/hooks/zustand/useAlert";
 
 const ExpenseModal = () => {
   const expenseModal = useExpenseModal();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [values, setValues] = useState({});
+  const alert = useAlert();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -25,9 +27,11 @@ const ExpenseModal = () => {
         },
       });
 
-      if (res.status === 200) {
-        expenseModal.onClose();
+      if (res.status !== 200) {
+        alert.onAlert(await res.json());
+        return;
       }
+      expenseModal.onClose();
     } catch (err) {
       console.log(err);
     } finally {
