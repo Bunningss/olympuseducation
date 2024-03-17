@@ -10,7 +10,7 @@ const BatchModal: FC = () => {
   const { data } = useGetData("batch");
   const [values, setValues] = useState({
     batchNumber: "",
-    courseName: "",
+    courseName: "IELTS",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
